@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CANT_BOOKING_A_ROOM" xml:space="preserve">
+    <value>No ha sido posible reservar esta habitación.</value>
+    <comment>Se lanza cuando se intenta reservar sin cumplir todos los requisitos de la habitación</comment>
+  </data>
   <data name="EXCEDEED_ROOM_CAPACITY" xml:space="preserve">
     <value>La cantidad de ocupantes exceden la capacidad de la habitación.</value>
     <comment>Se lanza cuando se intenta crear una reserva excediendo la capacidad de la habitación</comment>

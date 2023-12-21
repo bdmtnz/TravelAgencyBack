@@ -61,6 +61,15 @@ namespace TravelAgencyBack.Domain.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a No ha sido posible reservar esta habitación..
+        /// </summary>
+        internal static string CANT_BOOKING_A_ROOM {
+            get {
+                return ResourceManager.GetString("CANT_BOOKING_A_ROOM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a La cantidad de ocupantes exceden la capacidad de la habitación..
         /// </summary>
         internal static string EXCEDEED_ROOM_CAPACITY {

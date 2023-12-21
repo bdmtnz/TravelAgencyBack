@@ -33,9 +33,9 @@ namespace TravelAgencyBack.Domain
             return new DomainResponse<Hotel>(true, Resources.OkResponsesES.ADD_HOTEL_SUCCESSFUL, hotel);
         }
 
-        public DomainResponse<Booking> AddBooking(Hotel hotel, Room room, Traveler traveler, List<Person> guests, Contact emergencyContact, DateTime start, DateTime end)
+        public DomainResponse<Booking> AddBooking(Hotel hotel, Room room, Traveler traveler, List<Person> guests, Contact emergencyContact, DateTime start, DateTime end, string city)
         {
-            var response = hotel.AddBooking(room, traveler, guests, emergencyContact, start, end);
+            var response = hotel.AddBooking(room, traveler, guests, emergencyContact, start, end, city);
             if(!response.HaveError)
             {
                 Clients.Add(traveler);
