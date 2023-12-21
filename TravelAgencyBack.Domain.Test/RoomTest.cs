@@ -20,7 +20,7 @@ namespace TravelAgencyBack.Domain.Test
                 new Person()
                 {
                     Gender = Gender.Male,
-                    Birth = new DateTime().AddYears(-18),
+                    Birth = DateTime.Now.AddYears(-18),
                     Document = document,
                     Email = email,
                     LastName = "Lopez",
@@ -40,5 +40,67 @@ namespace TravelAgencyBack.Domain.Test
             var canBooking = Room.CanBooking(2, booking.Start, booking.End);
             Assert.IsFalse(canBooking, "Don´t can create a booking with this dates");
         }
+
+        [Test]
+        public void CrossDateMatchWithSameEnd()
+        {
+            var booking = Room.Bookings.FirstOrDefault();
+            var canBooking = Room.CanBooking(2, booking.Start.AddDays(1), booking.End);
+            Assert.IsFalse(canBooking, "Don´t can create a booking with this dates");
+        }
+
+        [Test]
+        public void CrossDateMatchWithSameStart()
+        {
+            var booking = Room.Bookings.FirstOrDefault();
+            var canBooking = Room.CanBooking(2, booking.Start, booking.End.AddDays(1));
+            Assert.IsFalse(canBooking, "Don´t can create a booking with this dates");
+        }
+
+        [Test]
+        public void CrossDateMatchInto()
+        {
+            var booking = Room.Bookings.FirstOrDefault();
+            var canBooking = Room.CanBooking(2, booking.Start.AddDays(1), booking.End.AddDays(-1));
+            Assert.IsFalse(canBooking, "Don´t can create a booking with this dates");
+        }
+
+        [Test]
+        public void CrossDateMatchIntoWithSecondElement()
+        {
+            var booking = Room.Bookings.LastOrDefault();
+            var canBooking = Room.CanBooking(2, booking.Start.AddDays(1), booking.End.AddDays(-1));
+            Assert.IsFalse(canBooking, "Don´t can create a booking with this dates");
+        }
+
+        [Test]
+        public void ExcedeedCapacity()
+        {
+            var booking = Room.Bookings.FirstOrDefault();
+            var canBooking = Room.CanBooking(3, booking.Start, booking.End);
+            Assert.IsFalse(canBooking, "Don´t can create a booking with excedeed places");
+        }
+
+        [Test]
+        public void AvalibleButExcedeedCapacity()
+        {
+            var canBooking = Room.CanBooking(3, DateTime.Now.AddDays(6), DateTime.Now.AddDays(10));
+            Assert.IsFalse(canBooking, "Don´t can create a booking with excedeed places");
+        }
+
+        [Test]
+        public void Avalible()
+        {
+            var canBooking = Room.CanBooking(2, DateTime.Now.AddDays(6), DateTime.Now.AddDays(10));
+            Assert.IsTrue(canBooking, "Should create a booking with this configuration");
+        }
+
+        [Test]
+        public void AvalibleBetween()
+        {
+            var canBooking = Room.CanBooking(2, DateTime.Now, DateTime.Now.AddDays(1));
+            Assert.IsTrue(canBooking, "Should create a booking with this configuration");
+        }
+
     }
 }
