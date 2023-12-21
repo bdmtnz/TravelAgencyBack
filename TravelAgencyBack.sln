@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyBack.Api", "TravelAgencyBack.Api\TravelAgencyBack.Api.csproj", "{00A18E89-EEB8-443B-8E5D-BF0411958AEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Api", "TravelAgencyBack.Api\TravelAgencyBack.Api.csproj", "{00A18E89-EEB8-443B-8E5D-BF0411958AEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyBack.Domain", "TravelAgencyBack.Domain\TravelAgencyBack.Domain.csproj", "{F0BCF59A-32F1-4B9D-9921-D4A77A4232F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Domain", "TravelAgencyBack.Domain\TravelAgencyBack.Domain.csproj", "{F0BCF59A-32F1-4B9D-9921-D4A77A4232F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelagencyBack.Application", "TravelagencyBack.Application\TravelagencyBack.Application.csproj", "{649B3A02-0EB4-48BD-AE07-577F65E61DDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelagencyBack.Application", "TravelagencyBack.Application\TravelagencyBack.Application.csproj", "{649B3A02-0EB4-48BD-AE07-577F65E61DDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyBack.Infrastructure", "TravelAgencyBack.Infrastructure\TravelAgencyBack.Infrastructure.csproj", "{16F75313-6CA9-40C7-BE62-29955DD79811}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Infrastructure", "TravelAgencyBack.Infrastructure\TravelAgencyBack.Infrastructure.csproj", "{16F75313-6CA9-40C7-BE62-29955DD79811}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyBack.Domain.Test", "TravelAgencyBack.Domain.Test\TravelAgencyBack.Domain.Test.csproj", "{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{16F75313-6CA9-40C7-BE62-29955DD79811}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16F75313-6CA9-40C7-BE62-29955DD79811}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16F75313-6CA9-40C7-BE62-29955DD79811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

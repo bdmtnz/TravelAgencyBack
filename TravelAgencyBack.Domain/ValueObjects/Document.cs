@@ -19,11 +19,10 @@ namespace TravelAgencyBack.Domain.ValueObjects
     {
         public DocumentType Type { get; set; }
         public string Value { get; set; }
-
-        public Document()
+        public Document(DocumentType type, string value)
         {
-            Type = DocumentType.CC;
-            Value = string.Empty;
+            Type = type;
+            Value = value;
         }
     }
 }

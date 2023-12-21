@@ -10,9 +10,11 @@ namespace TravelAgencyBack.Domain.ValueObjects
     {
         public int Indicative { get; set; }
         public string Value { get; set; }
-        public Phone()
+
+        public Phone(int indicative, string value)
         {
-            Value = string.Empty;
+            Indicative = indicative;
+            Value = value;
         }
     }
 }

@@ -11,10 +11,10 @@ namespace TravelAgencyBack.Domain.ValueObjects
         public string User { get; set; }
         public string Password { get; set; }
 
-        public Credential()
+        public Credential(string user, string password)
         {
-            User = string.Empty;
-            Password = string.Empty;
+            User = user;
+            Password = password;
         }
     }
 }
