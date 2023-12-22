@@ -1,9 +1,19 @@
-﻿using TravelAgencyBack.Domain.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Infrastructure
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : IStorable
+    public class GenericRepository<T> : IGenericRepository<T> where T : class, IStorable
     {
+        private readonly TravelAgencyContext _context;
+        private readonly DbSet<T> _dbset;
+
+        public GenericRepository(TravelAgencyContext context)
+        {
+            _context = context;
+            _dbset = context.Set<T>();
+        }
+
         public void Add(T entity)
         {
             throw new NotImplementedException();

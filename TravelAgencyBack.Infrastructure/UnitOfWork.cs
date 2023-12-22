@@ -9,10 +9,17 @@ namespace TravelAgencyBack.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IGenericRepository<T> GenericRepository<T>() where T : IStorable
+        private readonly TravelAgencyContext _context;
+        public UnitOfWork(TravelAgencyContext context)
         {
-            return new GenericRepository<T>();
+            _context = context;
         }
+
+        public IGenericRepository<T> GenericRepository<T>() where T : class, IStorable
+        {
+            return new GenericRepository<T>(_context);
+        }
+
         public void BeginTransaction()
         {
             throw new NotImplementedException();

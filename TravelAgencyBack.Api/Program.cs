@@ -1,6 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using TravelAgencyBack.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<TravelAgencyContext>(opt =>
+{
+    opt.UseInMemoryDatabase("TravelAgencyDbInMemory");
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

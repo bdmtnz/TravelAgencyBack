@@ -3,7 +3,7 @@ using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.ValueObjects;
 
-namespace TravelAgencyBack.Api.Context
+namespace TravelAgencyBack.Infrastructure
 {
     public class TravelAgencyContext : DbContext
     {

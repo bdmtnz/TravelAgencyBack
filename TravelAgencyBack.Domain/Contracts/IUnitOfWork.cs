@@ -8,7 +8,7 @@ namespace TravelAgencyBack.Domain.Contracts
 {
     public interface IUnitOfWork
     {
-        IGenericRepository<T> GenericRepository<T>() where T : IStorable; 
+        IGenericRepository<T> GenericRepository<T>() where T : class, IStorable; 
 
         void Commit();
         void Rollback();
