@@ -2,7 +2,7 @@
 
 namespace TravelAgencyBack.Infrastructure
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : IEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : IStorable
     {
         public void Add(T entity)
         {

@@ -10,10 +10,10 @@ namespace TravelAgencyBack.Domain
 {
     public class Traveler : Person
     {
-        public Credential Credential { get; set; }
+        public Credential<Traveler> Credential { get; set; }
         public List<Booking> Bookings { get; set; }
 
-        public Traveler(string name, string lastName, DateTime birth, Phone phone, Document document, Gender gender, string email, Credential credential) : base()
+        public Traveler(string name, string lastName, DateTime birth, Phone<Contact> phone, Document<Person> document, Gender gender, string email, Credential<Traveler> credential) : base()
         {
             Name = name;
             Birth = birth;

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAgencyBack.Domain.Base;
+using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Domain.ValueObjects
 {
@@ -15,7 +17,7 @@ namespace TravelAgencyBack.Domain.ValueObjects
         EXT
     }
 
-    public class Document
+    public class Document<T> : ValueObject<T> where T : IEntity
     {
         public DocumentType Type { get; set; }
         public string Value { get; set; }

@@ -11,11 +11,11 @@ namespace TravelAgencyBack.Domain
     public class Agency : Entity
     {
         public string Name { get; set; }
-        public Credential Credential { get; set; }
+        public Credential<Agency> Credential { get; set; }
         public List<Hotel> Hotels { get; set; }
         public List<Person> Clients { get; set; }
 
-        public Agency(string name, Credential credential) : base()
+        public Agency(string name, Credential<Agency> credential) : base()
         {
             Name = name;
             Credential = credential;

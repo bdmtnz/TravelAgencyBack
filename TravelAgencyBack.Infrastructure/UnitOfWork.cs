@@ -9,7 +9,7 @@ namespace TravelAgencyBack.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IGenericRepository<T> GenericRepository<T>() where T : IEntity
+        public IGenericRepository<T> GenericRepository<T>() where T : IStorable
         {
             return new GenericRepository<T>();
         }

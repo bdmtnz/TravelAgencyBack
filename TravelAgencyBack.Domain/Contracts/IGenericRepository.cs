@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgencyBack.Domain.Contracts
 {
-    public interface IGenericRepository<T> where T : IEntity
+    public interface IGenericRepository<T> where T : IStorable
     {
         T? FirstOrDefault();
         T? LastOrDefault();

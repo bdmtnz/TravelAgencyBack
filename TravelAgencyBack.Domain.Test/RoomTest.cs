@@ -11,10 +11,10 @@ namespace TravelAgencyBack.Domain.Test
         public void Setup()
         {
             Room = new Room("202A", RoomType.B, 20000, 10, 30, 2, "Medallo");
-            var phone = new Phone(57, "3116390221");
-            var document = new Document(DocumentType.CC, "1065852002");
+            var phone = new Phone<Contact>(57, "3116390221");
+            var document = new Document<Person>(DocumentType.CC, "1065852002");
             var email = "martinez_o@hotmail.es";
-            var credential = new Credential(email, "Password");
+            var credential = new Credential<Traveler>(email, "Password");
             var traveler = new Traveler("Luis", "Alfonso", DateTime.Now.AddYears(-20), phone, document, Gender.Male, email, credential);
             var guests = new List<Person> {
                 new Person()
