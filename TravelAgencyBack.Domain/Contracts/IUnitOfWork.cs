@@ -6,18 +6,9 @@ using System.Threading.Tasks;
 
 namespace TravelAgencyBack.Domain.Contracts
 {
-    public interface IUnitOfWork<T> where T : IEntity
+    public interface IUnitOfWork
     {
-        T? FirstOrDefault();
-        T? LastOrDefault();
-        T? Find(string id);
-        IEnumerable<T> FindBy(Func<T, bool> predicate, string includes = "");
-        void Add(T entity);
-        void AddRange(IEnumerable<T> entity);
-        void Update(T entity);
-        void Remove(T entity);
-        void RemoveBy(Func<T, bool> predicate);
-        IEnumerable<D> NativeQuery<D>(string query);
+        IGenericRepository<T> GenericRepository<T>() where T : IEntity; 
 
         void Commit();
         void Rollback();
