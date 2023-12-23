@@ -5,17 +5,26 @@ namespace TravelAgencyBack.Domain
     public class Hotel : Entity
     {
         public string Name { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+        public double MinPrice => GetMinPrice();
         public List<Room> Rooms { get; set; }
 
         public Hotel()
         {
-            
+            Rooms = new List<Room>();
         }
 
         public Hotel(string name) : base()
         {
             Name = name;
             Rooms = new List<Room>();
+        }
+
+        public double GetMinPrice()
+        {
+            var minPrice = Rooms.MinBy(room => room.Price);
+            return minPrice is null ? -1 : minPrice.Price;
         }
 
         public void AddRoom(Room room)

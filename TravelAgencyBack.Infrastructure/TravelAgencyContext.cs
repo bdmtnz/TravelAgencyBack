@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.Extensions.Configuration;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.ValueObjects;
@@ -10,6 +9,10 @@ namespace TravelAgencyBack.Infrastructure
 {
     public class TravelAgencyContext : DbContext
     {
+        public TravelAgencyContext()
+        {
+            
+        }
         public TravelAgencyContext(DbContextOptions<TravelAgencyContext> options)
             : base(options)
         { }
@@ -25,8 +28,17 @@ namespace TravelAgencyBack.Infrastructure
         public DbSet<Person> Persons { get; set; }
         public DbSet<Traveler> Travelers { get; set; }
 
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    base.OnConfiguring(optionsBuilder);
+        //    optionsBuilder.UseInMemoryDatabase("TravelAgencyDbInMemory");
+        //}
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            //Value objects persist config
             modelBuilder.ApplyConfiguration(new AgencyConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
