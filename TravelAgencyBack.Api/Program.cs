@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TravelAgencyBack.Api.Injects;
 using TravelAgencyBack.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<TravelAgencyContext>(opt =>
 });
 
 //Dependency inversion
+builder.Services.AddAppServices();
 builder.Services.AddInfrastructureServices();
 
 builder.Services.AddControllers();
