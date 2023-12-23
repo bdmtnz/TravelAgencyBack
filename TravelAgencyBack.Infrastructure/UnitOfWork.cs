@@ -22,17 +22,17 @@ namespace TravelAgencyBack.Infrastructure
 
         public void BeginTransaction()
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void Commit()
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public void Rollback()
         {
-            throw new NotImplementedException();
+            return;
         }
     }
 }

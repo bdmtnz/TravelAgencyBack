@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.Extensions.Configuration;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.ValueObjects;
+using TravelAgencyBack.Infrastructure.Configurations;
 
 namespace TravelAgencyBack.Infrastructure
 {
@@ -21,5 +24,11 @@ namespace TravelAgencyBack.Infrastructure
         public DbSet<Credential<Traveler>> Credentials { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Traveler> Travelers { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            //...Additional type configurations
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Infrastructure
@@ -16,67 +17,79 @@ namespace TravelAgencyBack.Infrastructure
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            _dbset.Add(entity);
         }
 
         public void AddRange(IEnumerable<T> entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public void BeginTransaction()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Commit()
-        {
-            throw new NotImplementedException();
+            _dbset.AddRange(entity);
         }
 
         public T? Find(string id)
         {
-            throw new NotImplementedException();
+            return _dbset.Find(id);
         }
 
         public IEnumerable<T> FindBy(Func<T, bool> predicate, string includes = "")
         {
-            throw new NotImplementedException();
+            return FindBy(predicate, includes);
         }
 
         public T? FirstOrDefault()
         {
-            throw new NotImplementedException();
+            return _dbset.FirstOrDefault();
         }
 
         public T? LastOrDefault()
         {
-            throw new NotImplementedException();
+            return _dbset.LastOrDefault();
         }
 
-        public IEnumerable<D> NativeQuery<D>(string query)
-        {
-            throw new NotImplementedException();
-        }
+        //public IEnumerable<D> NativeQuery<D>(string query)
+        //{
+        //    var command = _context.Database.GetDbConnection().CreateCommand();
+        //    command.CommandText = query;
+        //    _db.Database.OpenConnection();
+        //    var result = command.ExecuteReader();
+        //    List<T> list = new List<T>();
+        //    T obj = default(T);
+        //    while (result.Read())
+        //    {
+        //        obj = Activator.CreateInstance<T>();
+        //        foreach (PropertyInfo prop in obj.GetType().GetProperties())
+        //        {
+        //            bool propValid = true;
+        //            try
+        //            {
+        //                object data = result[prop.Name];
+        //            }
+        //            catch (Exception e) { propValid = false; }
+        //            if (propValid)
+        //            {
+        //                if (!object.Equals(result[prop.Name], DBNull.Value))
+        //                {
+        //                    prop.SetValue(obj, result[prop.Name], null);
+        //                }
+        //            }
+        //        }
+        //        list.Add(obj);
+        //    }
+        //    return list;
+        //}
 
         public void Remove(T entity)
         {
-            throw new NotImplementedException();
+            _dbset.Remove(entity);
         }
 
-        public void RemoveBy(Func<T, bool> predicate)
+        public void RemoveRange(IEnumerable<T> entity)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Rollback()
-        {
-            throw new NotImplementedException();
+            _dbset.RemoveRange(entity);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _dbset.Update(entity);
         }
     }
 }

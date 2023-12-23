@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,9 @@ namespace TravelAgencyBack.Domain.Base
     public class ValueObject<T> : IValueObject where T : IEntity
     {
         public string Id { get; private set; }
+
+        [ForeignKey("Foreign")]
+        public string IdForeign { get; set; }
         public T Foreign { get; private set; }
 
         public ValueObject()

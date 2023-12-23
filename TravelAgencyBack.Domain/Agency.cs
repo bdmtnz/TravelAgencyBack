@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,11 @@ namespace TravelAgencyBack.Domain
         public Credential<Agency> Credential { get; set; }
         public List<Hotel> Hotels { get; set; }
         public List<Person> Clients { get; set; }
+
+        public Agency()
+        {
+            
+        }
 
         public Agency(string name, Credential<Agency> credential) : base()
         {

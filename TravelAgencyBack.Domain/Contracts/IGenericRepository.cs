@@ -16,7 +16,6 @@ namespace TravelAgencyBack.Domain.Contracts
         void AddRange(IEnumerable<T> entity);
         void Update(T entity);
         void Remove(T entity);
-        void RemoveBy(Func<T, bool> predicate);
-        IEnumerable<D> NativeQuery<D>(string query);
+        void RemoveRange(IEnumerable<T> entity);
     }
 }

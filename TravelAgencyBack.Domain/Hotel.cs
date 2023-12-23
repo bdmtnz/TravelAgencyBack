@@ -7,6 +7,11 @@ namespace TravelAgencyBack.Domain
         public string Name { get; set; }
         public List<Room> Rooms { get; set; }
 
+        public Hotel()
+        {
+            
+        }
+
         public Hotel(string name) : base()
         {
             Name = name;

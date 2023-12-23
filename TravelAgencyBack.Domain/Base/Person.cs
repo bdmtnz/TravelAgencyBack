@@ -19,6 +19,7 @@ namespace TravelAgencyBack.Domain.Base
         public string Name { get; set; }
         public string LastName { get; set; }
         public Phone<Contact> Phone { get; set; }
+        public Phone PhoneVO { get; set; }
 
         public Contact() {  }
 

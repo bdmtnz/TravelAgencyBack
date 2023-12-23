@@ -26,6 +26,11 @@ namespace TravelAgencyBack.Domain
         public double Price => GetPrice();
         public List<Booking> Bookings { get; set; }
 
+        public Room()
+        {
+            
+        }
+
         public Room(string location, RoomType type, double cost, double tax, double profit, int capacity, string city) : base()
         {
             Location = location;

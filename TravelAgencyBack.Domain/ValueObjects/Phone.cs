@@ -19,4 +19,16 @@ namespace TravelAgencyBack.Domain.ValueObjects
             Value = value;
         }
     }
+
+    public class Phone
+    {
+        public int Indicative { get; set; }
+        public string Value { get; set; }
+
+        public Phone(int indicative, string value)
+        {
+            Indicative = indicative;
+            Value = value;
+        }
+    }
 }

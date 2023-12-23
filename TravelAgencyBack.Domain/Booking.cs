@@ -17,6 +17,11 @@ namespace TravelAgencyBack.Domain
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
 
+        public Booking()
+        {
+            
+        }
+
         public Booking(Room room, Traveler traveler, List<Person> guests, Contact emergencyContact, DateTime start, DateTime end) : base()
         {
             Room = room;
