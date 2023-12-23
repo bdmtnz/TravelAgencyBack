@@ -27,7 +27,10 @@ namespace TravelAgencyBack.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new AgencyConfiguration());
+            modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
+            modelBuilder.ApplyConfiguration(new TravelerConfiguration());
             //...Additional type configurations
         }
     }
