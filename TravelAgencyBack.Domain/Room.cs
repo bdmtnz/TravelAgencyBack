@@ -69,7 +69,7 @@ namespace TravelAgencyBack.Domain
         {
             if (city.ToLower() != City.ToLower()) return false;
             if(quantityPeople > Capacity) return false;
-            var bookings = Bookings.Where(booking => booking.Start <= end && booking.End >= start);
+            var bookings = Bookings.Where(booking => booking.Start <= end && booking.End >= start && booking.Enabled);
             return !bookings.Any();
         }
     }

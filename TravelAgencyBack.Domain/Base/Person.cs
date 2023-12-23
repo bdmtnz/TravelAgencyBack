@@ -41,6 +41,7 @@ namespace TravelAgencyBack.Domain.Base
         {
 
         }
+
         public Person(DateTime birth, Gender gender, Document document, string email)
         {
             Birth = birth;

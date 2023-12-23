@@ -14,8 +14,7 @@ namespace TravelAgencyBack.Domain.Test
             var phone = new Phone(57, "3116390221");
             var document = new Document(DocumentType.CC, "1065852002");
             var email = "martinez_o@hotmail.es";
-            var credential = new Credential(email, "Password");
-            var traveler = new Traveler("Luis", "Alfonso", DateTime.Now.AddYears(-20), phone, document, Gender.Male, email, credential);
+            var traveler = new Traveler("Luis", "Alfonso", DateTime.Now.AddYears(-20), phone, document, Gender.Male, email, "");
             var guests = new List<Person> {
                 new Person()
                 {
@@ -29,7 +28,12 @@ namespace TravelAgencyBack.Domain.Test
                 }
             };
             var contact = new Contact("Lorena", "Mantilla", phone);
-            Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(2), DateTime.Now.AddDays(5), "Medallo");
+            Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(2), DateTime.Now.AddDays(5), "Medallo"); 
+            var disabledBooking = Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(-10), DateTime.Now.AddDays(-8), "Medallo");
+            if(!disabledBooking.HaveError)
+            {
+                disabledBooking.Data.SetEnable(false);
+            }
             Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-1), "Medallo");
         }
 
@@ -39,6 +43,14 @@ namespace TravelAgencyBack.Domain.Test
             var booking = Room.Bookings.FirstOrDefault();
             var canBooking = Room.CanBooking(2, booking.Start, booking.End, "Medallo");
             Assert.IsFalse(canBooking, "Don´t can create a booking with this dates");
+        }
+
+        [Test]
+        public void FullDateMatchButPreviusBookingDisabled()
+        {
+            var bookingDisabled = Room.Bookings.Find(booking => !booking.Enabled);
+            var canBooking = Room.CanBooking(2, bookingDisabled.Start, bookingDisabled.End, "Medallo");
+            Assert.IsTrue(canBooking, "Should can create a booking with this dates");
         }
 
         [Test]

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TravelAgencyBack.Domain.Base;
-using TravelAgencyBack.Domain.ValueObjects;
 
 namespace TravelAgencyBack.Domain
 {
@@ -21,10 +20,10 @@ namespace TravelAgencyBack.Domain
             
         }
 
-        public Agency(string name, Credential credential) : base()
+        public Agency(string name, string user, string password) : base()
         {
             Name = name;
-            Credential = credential;
+            Credential = new Credential(user, password, Rol.Agency);
             Hotels = new List<Hotel>();
             Clients = new List<Person>();
         }

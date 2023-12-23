@@ -18,7 +18,7 @@ namespace TravelAgencyBack.Domain
             
         }
 
-        public Traveler(string name, string lastName, DateTime birth, Phone phone, Document document, Gender gender, string email, Credential credential) : base()
+        public Traveler(string name, string lastName, DateTime birth, Phone phone, Document document, Gender gender, string email, string password) : base()
         {
             Name = name;
             Birth = birth;
@@ -27,7 +27,7 @@ namespace TravelAgencyBack.Domain
             Document = document;
             Email = email;
             LastName = lastName;
-            Credential = credential;
+            Credential = new Credential(email, password, Rol.Traveler);
             Bookings = new List<Booking>();
         }
 
