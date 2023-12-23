@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContext<TravelAgencyContext>(opt =>
 {
-    opt.UseInMemoryDatabase("TravelAgencyDbInMemory");
+    opt.UseInMemoryDatabase(Guid.NewGuid().ToString());
 });
 
 //Dependency inversion
