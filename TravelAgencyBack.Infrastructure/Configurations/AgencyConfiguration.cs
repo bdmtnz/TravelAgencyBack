@@ -16,7 +16,7 @@ namespace TravelAgencyBack.Infrastructure.Configurations
         {
 
             //Address value object persisted as owned entity in EF Core 2.0
-            agencyConfiguration.OwnsOne(o => o.Credential);
+            //agencyConfiguration.OwnsOne(o => o.Credential);
 
             //contactConfiguration.Property<DateTime>("OrderDate").IsRequired();
 
