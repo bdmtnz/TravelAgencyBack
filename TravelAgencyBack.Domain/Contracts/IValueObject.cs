@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgencyBack.Domain.Contracts
 {
-    public interface IValueObject : IStorable
+    public interface IValueObject
     {
     }
 }

@@ -17,7 +17,7 @@ namespace TravelAgencyBack.Domain.ValueObjects
         EXT
     }
 
-    public class Document<T> : ValueObject<T> where T : IEntity
+    public class Document : IValueObject
     {
         public DocumentType Type { get; set; }
         public string Value { get; set; }

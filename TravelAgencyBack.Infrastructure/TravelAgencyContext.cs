@@ -19,15 +19,15 @@ namespace TravelAgencyBack.Infrastructure
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<Phone<Contact>> Phones { get; set; }
-        public DbSet<Document<Person>> Documents { get; set; }
-        public DbSet<Credential<Traveler>> Credentials { get; set; }
+        //public DbSet<Phone<Contact>> Phones { get; set; }
+        //public DbSet<Document<Person>> Documents { get; set; }
+        //public DbSet<Credential<Traveler>> Credentials { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Traveler> Travelers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            modelBuilder.ApplyConfiguration(new PersonConfiguration());
             //...Additional type configurations
         }
     }

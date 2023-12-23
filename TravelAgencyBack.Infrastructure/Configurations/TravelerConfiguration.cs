@@ -5,17 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Base;
 
 namespace TravelAgencyBack.Infrastructure.Configurations
 {
-    public class ContactConfiguration : IEntityTypeConfiguration<Contact>
+    public class TravelerConfiguration : IEntityTypeConfiguration<Traveler>
     {
-        public void Configure(EntityTypeBuilder<Contact> contactConfiguration)
+        public void Configure(EntityTypeBuilder<Traveler> travelerConfiguration)
         {
 
             //Address value object persisted as owned entity in EF Core 2.0
-            contactConfiguration.OwnsOne(o => o.Phone);
+            travelerConfiguration.OwnsOne(o => o.Credential);
+            travelerConfiguration.OwnsOne(o => o.Document);
+            travelerConfiguration.OwnsOne(o => o.Phone);
 
             //contactConfiguration.Property<DateTime>("OrderDate").IsRequired();
 

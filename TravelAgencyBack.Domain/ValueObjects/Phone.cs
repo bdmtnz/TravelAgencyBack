@@ -8,19 +8,7 @@ using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Domain.ValueObjects
 {
-    public class Phone<T> : ValueObject<T> where T : IEntity
-    {
-        public int Indicative { get; set; }
-        public string Value { get; set; }
-
-        public Phone(int indicative, string value)
-        {
-            Indicative = indicative;
-            Value = value;
-        }
-    }
-
-    public class Phone
+    public class Phone : IValueObject
     {
         public int Indicative { get; set; }
         public string Value { get; set; }

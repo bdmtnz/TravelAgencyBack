@@ -8,7 +8,7 @@ using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Domain.ValueObjects
 {
-    public class Credential<T> : ValueObject<T> where T : IEntity
+    public class Credential : IValueObject
     {
         public string User { get; set; }
         public string Password { get; set; }
