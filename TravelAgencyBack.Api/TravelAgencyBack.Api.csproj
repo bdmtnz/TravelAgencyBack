@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TravelagencyBack.Application\TravelagencyBack.Application.csproj" />
     <ProjectReference Include="..\TravelAgencyBack.Domain\TravelAgencyBack.Domain.csproj" />
     <ProjectReference Include="..\TravelAgencyBack.Infrastructure\TravelAgencyBack.Infrastructure.csproj" />
   </ItemGroup>

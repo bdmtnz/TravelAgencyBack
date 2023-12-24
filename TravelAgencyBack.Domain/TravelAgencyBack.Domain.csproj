@@ -23,6 +23,7 @@
     <EmbeddedResource Update="Resources\ErrorResponsesES.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorResponsesES.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\OkResponsesES.resx">
       <Generator>ResXFileCodeGenerator</Generator>

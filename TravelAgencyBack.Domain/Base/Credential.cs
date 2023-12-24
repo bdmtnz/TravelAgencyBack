@@ -18,12 +18,19 @@ namespace TravelAgencyBack.Domain.Base
         public string User { get; private set; }
         public Rol Rol { get; private set; }
         public string Password { get; private set; }
+        public Contact Contact { get; private set; }
 
-        public Credential(string user, string password, Rol rol)
+        public Credential()
+        {
+
+        }
+
+        public Credential(string user, string password, Rol rol, Contact contact)
         {
             User = user;
             Password = password;
             Rol = rol;
+            Contact = contact;
         }
     }
 }

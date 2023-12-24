@@ -17,21 +17,20 @@ namespace TravelAgencyBack.Domain.Base
     public class Contact : Entity
     {
         public string Name { get; set; }
-        public string LastName { get; set; }
         public Phone Phone { get; set; }
 
         public Contact() {  }
 
-        public Contact(string name, string lastName, Phone phone)
+        public Contact(string name, Phone phone)
         {
             Name = name;
-            LastName = lastName;
             Phone = phone;
         }
     }
 
     public class Person : Contact
     {
+        public string LastName { get; set; }
         public DateTime Birth { get; set; }
         public Gender Gender { get; set; }
         public Document Document { get; set; }
@@ -42,8 +41,9 @@ namespace TravelAgencyBack.Domain.Base
 
         }
 
-        public Person(DateTime birth, Gender gender, Document document, string email)
+        public Person(string lastName, DateTime birth, Gender gender, Document document, string email)
         {
+            LastName = lastName;
             Birth = birth;
             Gender = gender;
             Document = document;

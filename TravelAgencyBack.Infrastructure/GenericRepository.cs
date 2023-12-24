@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using System.Reflection;
 using TravelAgencyBack.Domain.Contracts;
 
@@ -32,7 +33,7 @@ namespace TravelAgencyBack.Infrastructure
 
         public IEnumerable<T> FindBy(Func<T, bool> predicate, string includes = "")
         {
-            return FindBy(predicate, includes);
+            return _dbset.Where(predicate);
         }
 
         public T? FirstOrDefault()

@@ -27,7 +27,7 @@ namespace TravelAgencyBack.Domain.Test
                     Phone = phone
                 }
             };
-            var contact = new Contact("Lorena", "Mantilla", phone);
+            var contact = new Contact("Lorena", phone);
             Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(2), DateTime.Now.AddDays(5), "Medallo"); 
             var disabledBooking = Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(-10), DateTime.Now.AddDays(-8), "Medallo");
             if(!disabledBooking.HaveError)

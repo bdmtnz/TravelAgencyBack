@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using TravelAgencyBack.Api.Injects;
+using System.Reflection;
+using TravelAgencyBack.Application.Injects;
 using TravelAgencyBack.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +13,8 @@ builder.Services.AddDbContext<TravelAgencyContext>(opt =>
 });
 
 //Dependency inversion
-builder.Services.AddAppServices();
 builder.Services.AddInfrastructureServices();
+builder.Services.AddAppServices();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

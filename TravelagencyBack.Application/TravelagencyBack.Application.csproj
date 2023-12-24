@@ -14,4 +14,37 @@
     <ProjectReference Include="..\TravelAgencyBack.Domain\TravelAgencyBack.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Resources\ErrorResponsesES.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ErrorResponsesES.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\OkResponseES.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OkResponseES.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Resources\StatusCodeResponses.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>StatusCodeResponses.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\ErrorResponsesES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>ErrorResponsesES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\OkResponseES.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>OkResponseES.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\StatusCodeResponses.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>StatusCodeResponses.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
