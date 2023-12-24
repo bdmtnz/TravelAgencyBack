@@ -25,11 +25,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OkResponseES.resx</DependentUpon>
     </Compile>
-    <Compile Update="Resources\StatusCodeResponses.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>StatusCodeResponses.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -40,10 +35,6 @@
     <EmbeddedResource Update="Resources\OkResponseES.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>OkResponseES.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Resources\StatusCodeResponses.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>StatusCodeResponses.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

@@ -54,7 +54,7 @@ namespace TravelagencyBack.Application.Security.Authentication
                 };
                 return response;
             }
-            var credentials = _credentialRepository.GetAll();
+            //var credentials = _credentialRepository.GetAll();
             var credential = _credentialRepository.FindBy(
                     credential =>
                         credential.User == request.User &&

@@ -2,6 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TravelagencyBack.Application.Base;
 using TravelagencyBack.Application.Security.Authentication;
+using TravelagencyBack.Application.Security.Signup;
 
 namespace TravelAgencyBack.Api.Controllers
 {
@@ -18,8 +19,15 @@ namespace TravelAgencyBack.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpPost(Name = "Authentication")]
+        [HttpPost("Authentication", Name = "Authentication")]
         public async Task<ActionResult<ApiResponse<AuthenticationResponse>>> GetAuthentication(AuthenticationRequest request)
+        {
+            var handled = await _mediator.Send(request);
+            return Ok(handled);
+        }
+
+        [HttpPost("Signup", Name = "Signup")]
+        public async Task<ActionResult<ApiResponse<object>>> Signup(SignupRequest request)
         {
             var handled = await _mediator.Send(request);
             return Ok(handled);

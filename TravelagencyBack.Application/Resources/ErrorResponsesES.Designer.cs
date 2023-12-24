@@ -61,6 +61,15 @@ namespace TravelagencyBack.Application.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Se ha enviado una petición no consistente..
+        /// </summary>
+        internal static string BAD_REQUEST {
+            get {
+                return ResourceManager.GetString("BAD_REQUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Ha ocurrido un error inesperado..
         /// </summary>
         internal static string INTERNAL_SERVER_ERROR {
