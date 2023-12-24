@@ -13,10 +13,10 @@ namespace TravelAgencyBack.Application.Injects
         {
             services.AddMediatR(cf => cf.RegisterServicesFromAssembly(typeof(AppServices).Assembly));
 
-            services.AddMediatR(cfg =>
-                //cfg.RegisterServicesFromAssembly(typeof(Ping).Assembly)
-                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
-            );
+            //services.AddMediatR(cfg =>
+            //    //cfg.RegisterServicesFromAssembly(typeof(Ping).Assembly)
+            //    cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly())
+            //);
 
             //return services;
         }

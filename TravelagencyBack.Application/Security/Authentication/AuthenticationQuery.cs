@@ -15,17 +15,36 @@ namespace TravelagencyBack.Application.Security.Authentication
     public class AuthenticationQuery : IRequestHandler<AuthenticationRequest, ApiResponse<AuthenticationResponse>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IGenericRepository<Credential> _credentialRepository;
 
         public AuthenticationQuery(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
+            _credentialRepository = _unitOfWork.GenericRepository<Credential>();
+            var credentials = _credentialRepository.GetAll();
+            if(!credentials.Any())
+            {
+                var seedCredential = new List<Credential>()
+                {
+                    new Credential(
+                        "admin@admin.com", 
+                        "", 
+                        Rol.Agency, 
+                        new Contact(
+                            "Admin", 
+                            new TravelAgencyBack.Domain.ValueObjects.Phone(57, "3116390221")
+                        )
+                    )
+                };
+                _credentialRepository.AddRange(seedCredential);
+                _unitOfWork.Commit();
+            }
         }
 
         public async Task<ApiResponse<AuthenticationResponse>> Handle(AuthenticationRequest request, CancellationToken cancellationToken)
         {
-            var credentialRepository = _unitOfWork.GenericRepository<Credential>();
             ApiResponse<AuthenticationResponse> response;
-            if (credentialRepository is null)
+            if (_credentialRepository is null)
             {
                 response = new ApiResponse<AuthenticationResponse>()
                 {
@@ -35,8 +54,8 @@ namespace TravelagencyBack.Application.Security.Authentication
                 };
                 return response;
             }
-            var credentials = credentialRepository.GetAll();
-            var credential = credentialRepository.FindBy(
+            var credentials = _credentialRepository.GetAll();
+            var credential = _credentialRepository.FindBy(
                     credential =>
                         credential.User == request.User &&
                         credential.Password == request.Password &&

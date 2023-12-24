@@ -27,6 +27,7 @@ namespace TravelAgencyBack.Infrastructure
 
         public void Commit()
         {
+            _context.SaveChanges();
             return;
         }
 
