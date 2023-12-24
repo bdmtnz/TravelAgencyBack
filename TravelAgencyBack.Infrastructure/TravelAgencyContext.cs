@@ -31,18 +31,20 @@ namespace TravelAgencyBack.Infrastructure
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //{
         //    base.OnConfiguring(optionsBuilder);
-        //    optionsBuilder.UseInMemoryDatabase("TravelAgencyDbInMemory");
         //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            var contactConfig = new ContactConfiguration();
+
             //Value objects persist config
             modelBuilder.ApplyConfiguration(new AgencyConfiguration());
-            modelBuilder.ApplyConfiguration(new ContactConfiguration());
+            modelBuilder.ApplyConfiguration(contactConfig);
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new TravelerConfiguration());
+            modelBuilder.ApplyConfiguration(new SeedConfiguration());
             //...Additional type configurations
         }
     }

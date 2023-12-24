@@ -41,6 +41,11 @@ namespace TravelAgencyBack.Infrastructure
             return _dbset.FirstOrDefault();
         }
 
+        public IEnumerable<T> GetAll()
+        {
+            return _dbset.ToList();
+        }
+
         public T? LastOrDefault()
         {
             return _dbset.LastOrDefault();

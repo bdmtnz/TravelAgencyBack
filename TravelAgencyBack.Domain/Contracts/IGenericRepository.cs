@@ -8,6 +8,7 @@ namespace TravelAgencyBack.Domain.Contracts
 {
     public interface IGenericRepository<T> where T : IStorable
     {
+        IEnumerable<T> GetAll();
         T? FirstOrDefault();
         T? LastOrDefault();
         T? Find(string id);

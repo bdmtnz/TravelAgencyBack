@@ -9,14 +9,14 @@ using TravelAgencyBack.Domain.Base;
 
 namespace TravelAgencyBack.Infrastructure.Configurations
 {
-    public class ContactConfiguration : IEntityTypeConfiguration<Contact>
-    {
-        public void Configure(EntityTypeBuilder<Contact> contactConfiguration)
+    public class SeedConfiguration : IEntityTypeConfiguration<Credential>
+    { 
+        public void Configure(EntityTypeBuilder<Credential> CredentialConfiguration)
         {
-
             //Address value object persisted as owned entity in EF Core 2.0
-            contactConfiguration.OwnsOne(o => o.Phone);
-            //contactConfiguration.Property<DateTime>("OrderDate").IsRequired();
+
+
+            //CredentialConfiguration.Property<DateTime>("OrderDate").IsRequired();
 
             //...Additional validations, constraints and code...
             //...
