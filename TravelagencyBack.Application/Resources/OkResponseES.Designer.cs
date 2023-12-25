@@ -61,6 +61,24 @@ namespace TravelagencyBack.Application.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Se ha creado el recurso con identificador &apos;{0}&apos; exitosamente..
+        /// </summary>
+        internal static string RESOURCE_CREATED {
+            get {
+                return ResourceManager.GetString("RESOURCE_CREATED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Se ha modificado el recurso con identificador &apos;{0}&apos; exitosamente..
+        /// </summary>
+        internal static string RESOURCE_MODIFIED {
+            get {
+                return ResourceManager.GetString("RESOURCE_MODIFIED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Proceso realizado con éxito..
         /// </summary>
         internal static string SUCCESSFUL_PROCCESS {

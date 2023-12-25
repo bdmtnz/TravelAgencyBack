@@ -86,5 +86,14 @@ namespace TravelagencyBack.Application.Resources {
                 return ResourceManager.GetString("INVALID_CREDENTIALS", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a No se ha encontrado el recurso solicitado..
+        /// </summary>
+        internal static string NOT_FOUND {
+            get {
+                return ResourceManager.GetString("NOT_FOUND", resourceCulture);
+            }
+        }
     }
 }

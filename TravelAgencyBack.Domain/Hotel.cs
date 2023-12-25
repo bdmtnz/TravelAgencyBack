@@ -4,20 +4,22 @@ namespace TravelAgencyBack.Domain
 {
     public class Hotel : Entity
     {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string ImageUrl { get; set; }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public string ImageUrl { get; private set; }
         public double MinPrice => GetMinPrice();
-        public List<Room> Rooms { get; set; }
+        public List<Room> Rooms { get; private set; }
 
         public Hotel()
         {
             Rooms = new List<Room>();
         }
 
-        public Hotel(string name) : base()
+        public Hotel(string name, string description, string imageUrl) : base()
         {
             Name = name;
+            Description = description;
+            ImageUrl = imageUrl;
             Rooms = new List<Room>();
         }
 
@@ -52,6 +54,13 @@ namespace TravelAgencyBack.Domain
         {
             var rooms = Rooms.Where(room => room.CanBooking(quantitypeople, start, end, city));
             return rooms.ToList();
+        }
+
+        public void Update(string name, string description, string imageUrl)
+        {
+            Name = name;
+            Description = description;
+            ImageUrl = imageUrl;
         }
     }
 }

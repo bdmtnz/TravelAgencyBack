@@ -128,4 +128,7 @@
     <value>Usuario y/o clave incorrectos.</value>
     <comment>Se lanza cuando se intenta ingresar con credenciales invalidas al sistema</comment>
   </data>
+  <data name="NOT_FOUND" xml:space="preserve">
+    <value>No se ha encontrado el recurso solicitado.</value>
+  </data>
 </root>

@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="RESOURCE_CREATED" xml:space="preserve">
+    <value>Se ha creado el recurso con identificador '{0}' exitosamente.</value>
+  </data>
+  <data name="RESOURCE_MODIFIED" xml:space="preserve">
+    <value>Se ha modificado el recurso con identificador '{0}' exitosamente.</value>
+  </data>
   <data name="SUCCESSFUL_PROCCESS" xml:space="preserve">
     <value>Proceso realizado con éxito.</value>
   </data>
