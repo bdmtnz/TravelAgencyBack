@@ -29,7 +29,7 @@ namespace TravelagencyBack.Application.RoomHandler.Filter
             Func<Room, bool> filter = (room) =>
             {
                 return
-                    string.IsNullOrEmpty(request.Hotel)    ? true : room.Hotel.Name.ToLower().Contains(request.Hotel) &&
+                    //string.IsNullOrEmpty(request.Hotel)    ? true : room.Hotel.Name.ToLower().Contains(request.Hotel) &&
                     string.IsNullOrEmpty(request.City)     ? true : room.City.ToLower().Contains(request.City) &&
                     string.IsNullOrEmpty(request.Location) ? true : room.Location.ToLower().Contains(request.Location) &&
                     request.Capacity is null ? true : room.Capacity == request.Capacity &&
@@ -37,7 +37,7 @@ namespace TravelagencyBack.Application.RoomHandler.Filter
                     request.Enabled is null  ? true : room.Enabled == request.Enabled;
             };
 
-            rooms = _hotelRepository.FindBy(filter, "");
+            rooms = _hotelRepository.FindBy(filter, "Hotel");
 
             response = new ApiResponse<IEnumerable<Room>>()
             {

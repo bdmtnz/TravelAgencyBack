@@ -4,6 +4,8 @@ using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.ValueObjects;
 using TravelAgencyBack.Infrastructure.Configurations;
+using TravelHotelBack.Infrastructure.Configurations;
+using TravelRoomBack.Infrastructure.Configurations;
 
 namespace TravelAgencyBack.Infrastructure
 {
@@ -36,6 +38,8 @@ namespace TravelAgencyBack.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Value objects persist config
+            modelBuilder.ApplyConfiguration(new HotelConfiguration());
+            modelBuilder.ApplyConfiguration(new RoomConfiguration());
             modelBuilder.ApplyConfiguration(new AgencyConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());

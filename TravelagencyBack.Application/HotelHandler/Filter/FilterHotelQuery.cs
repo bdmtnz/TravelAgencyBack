@@ -30,7 +30,7 @@ namespace TravelagencyBack.Application.Hotelhandler.Filter
             }
             else
             {
-                hotels = _hotelRepository.FindBy(hotel => hotel.Name.ToLower().Contains(request.Name.ToLower()));
+                hotels = _hotelRepository.FindBy(hotel => hotel.Name.ToLower().Contains(request.Name.ToLower()), "Rooms");
             }
 
             response = new ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>()

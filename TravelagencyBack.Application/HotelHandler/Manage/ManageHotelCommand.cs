@@ -51,6 +51,7 @@ namespace TravelagencyBack.Application.Hotelhandler.Add
             {
                 hotel = new TravelAgencyBack.Domain.Hotel(request.Name, request.Description, request.ImageUrl);
                 _hotelRepository.Add(hotel);
+                _unitOfWork.Commit();
                 message = Resources.OkResponseES.RESOURCE_CREATED;
             }
             else
@@ -69,6 +70,7 @@ namespace TravelagencyBack.Application.Hotelhandler.Add
 
                 hotel.Update(request.Name, request.Description, request.ImageUrl);
                 _hotelRepository.Update(hotel);
+                _unitOfWork.Commit();
                 message = Resources.OkResponseES.RESOURCE_MODIFIED;
             }
 

@@ -28,7 +28,7 @@ namespace TravelagencyBack.Application.RoomHandler.Add
         public Task<ApiResponse<object>> Handle(ManageRoomRequest request, CancellationToken cancellationToken)
         {
             ApiResponse<object> response;
-            if(_roomRepository is null)
+            if (_roomRepository is null)
             {
                 response = new ApiResponse<object>()
                 {
@@ -67,8 +67,7 @@ namespace TravelagencyBack.Application.RoomHandler.Add
             var message = "";
             if (string.IsNullOrEmpty(request.Id))
             {
-                room = new Room(
-                    hotel,
+                room = hotel.AddRoom(
                     request.Location, 
                     request.Type, 
                     request.Cost, 
@@ -79,6 +78,9 @@ namespace TravelagencyBack.Application.RoomHandler.Add
                     request.ImageUrl
                 );
                 _roomRepository.Add(room);
+                _unitOfWork.Commit();
+                _hotelRepository.Update(hotel);
+                _unitOfWork.Commit();
                 message = Resources.OkResponseES.RESOURCE_CREATED;
             }
             else
@@ -97,6 +99,7 @@ namespace TravelagencyBack.Application.RoomHandler.Add
 
                 room.Update(request.Location, request.Type, request.Cost, request.Tax, request.Profit, request.Capacity, request.City);
                 _roomRepository.Update(room);
+                _unitOfWork.Commit();
                 message = Resources.OkResponseES.RESOURCE_MODIFIED;
             }
 

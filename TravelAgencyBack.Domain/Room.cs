@@ -17,8 +17,6 @@ namespace TravelAgencyBack.Domain
 
     public class Room : Entity
     {
-        [ForeignKey("Hotel")]
-        public string HotelId { get; set; }
         public Hotel Hotel { get; set; }
         public string Location { get; set; }
         public RoomType Type { get; set; }
@@ -38,7 +36,7 @@ namespace TravelAgencyBack.Domain
 
         public Room(Hotel hotel, string location, RoomType type, double cost, double tax, double profit, int capacity, string city, string imageUrl) : base()
         {
-            Hotel = hotel;
+            //Hotel = hotel;
             Location = location;
             Type = type;
             Cost = cost;
