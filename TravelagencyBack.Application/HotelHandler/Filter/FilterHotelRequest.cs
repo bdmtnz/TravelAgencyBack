@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelagencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.HotelHanlder.Filter
+namespace TravelagencyBack.Application.Hotelhandler.Filter
 {
-    public class FilterRequest : IRequest<ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>>
+    public class FilterHotelRequest : IRequest<ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>>
     {
         public string Name { get; set; }
     }

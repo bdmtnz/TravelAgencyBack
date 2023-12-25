@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,13 +10,16 @@ namespace TravelAgencyBack.Domain
 {
     public enum RoomType
     {
-        A,
-        B,
-        C
+        Sencilla,
+        Matrimonial,
+        Familiar
     }
 
     public class Room : Entity
     {
+        [ForeignKey("Hotel")]
+        public string HotelId { get; set; }
+        public Hotel Hotel { get; set; }
         public string Location { get; set; }
         public RoomType Type { get; set; }
         public double Cost { get; set; }
@@ -23,6 +27,7 @@ namespace TravelAgencyBack.Domain
         public double Profit { get; set; }
         public int Capacity { get; set; }
         public string City { get; set; }
+        public string ImageUrl { get; set; }
         public double Price => GetPrice();
         public List<Booking> Bookings { get; set; }
 
@@ -31,8 +36,9 @@ namespace TravelAgencyBack.Domain
             
         }
 
-        public Room(string location, RoomType type, double cost, double tax, double profit, int capacity, string city) : base()
+        public Room(Hotel hotel, string location, RoomType type, double cost, double tax, double profit, int capacity, string city, string imageUrl) : base()
         {
+            Hotel = hotel;
             Location = location;
             Type = type;
             Cost = cost;
@@ -40,6 +46,7 @@ namespace TravelAgencyBack.Domain
             Profit = profit;
             Capacity = capacity;
             City = city;
+            ImageUrl = imageUrl;
             Bookings = new List<Booking>();
         }
 
@@ -71,6 +78,17 @@ namespace TravelAgencyBack.Domain
             if(quantityPeople > Capacity) return false;
             var bookings = Bookings.Where(booking => booking.Start <= end && booking.End >= start && booking.Enabled);
             return !bookings.Any();
+        }
+
+        public void Update(string location, RoomType type, double cost, double tax, double profit, int capacity, string city)
+        {
+            Location = location;
+            Type = type;
+            Cost = cost;
+            Tax = tax;
+            Profit = profit;
+            Capacity = capacity;
+            City = city;
         }
     }
 }

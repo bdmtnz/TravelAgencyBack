@@ -9,23 +9,23 @@ using TravelagencyBack.Application.Base;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.Switch
+namespace TravelagencyBack.Application.RoomHandler.Switch
 {
-    public class SwitchHotelCommand : IRequestHandler<SwitchHotelRequest, ApiResponse<object>>
+    public class SwitchRoomCommand : IRequestHandler<SwitchRoomRequest, ApiResponse<object>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IGenericRepository<Hotel> _hotelRepository;
+        private readonly IGenericRepository<Room> _roomRepository;
 
-        public SwitchHotelCommand(IUnitOfWork unitOfWork)
+        public SwitchRoomCommand(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _hotelRepository = unitOfWork.GenericRepository<Hotel>();
+            _roomRepository = unitOfWork.GenericRepository<Room>();
         }
 
-        public Task<ApiResponse<object>> Handle(SwitchHotelRequest request, CancellationToken cancellationToken)
+        public Task<ApiResponse<object>> Handle(SwitchRoomRequest request, CancellationToken cancellationToken)
         {
             ApiResponse<object> response;
-            if (_hotelRepository is null)
+            if (_roomRepository is null)
             {
                 response = new ApiResponse<object>()
                 {
@@ -47,8 +47,8 @@ namespace TravelagencyBack.Application.Switch
                 return Task.FromResult(response);
             }
 
-            var hotel = _hotelRepository.Find(request.Id);
-            if (hotel is null)
+            var room = _roomRepository.Find(request.Id);
+            if (room is null)
             {
                 response = new ApiResponse<object>()
                 {
@@ -59,8 +59,8 @@ namespace TravelagencyBack.Application.Switch
                 return Task.FromResult(response);
             }
 
-            hotel.SetEnable(request.Enabled);
-            _hotelRepository.Update(hotel);
+            room.SetEnable(request.Enabled);
+            _roomRepository.Update(room);
             _unitOfWork.Commit();
 
             response = new ApiResponse<object>()

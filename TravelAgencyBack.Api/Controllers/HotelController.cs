@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TravelagencyBack.Application.Base;
-using TravelagencyBack.Application.HotelHanlder.Add;
-using TravelagencyBack.Application.HotelHanlder.Filter;
-using TravelagencyBack.Application.Switch;
+using TravelagencyBack.Application.HotelHandler.Switch;
+using TravelagencyBack.Application.Hotelhandler.Add;
+using TravelagencyBack.Application.Hotelhandler.Filter;
 using TravelAgencyBack.Domain;
 
 namespace TravelAgencyBack.Api.Controllers
@@ -22,14 +22,14 @@ namespace TravelAgencyBack.Api.Controllers
         }
 
         [HttpPost("Filter", Name = "GetHotels")]
-        public async Task<ActionResult<ApiResponse<IEnumerable<Hotel>>>> GetHotels(FilterRequest request)
+        public async Task<ActionResult<ApiResponse<IEnumerable<Hotel>>>> GetHotels(FilterHotelRequest request)
         {
             var handled = await _mediator.Send(request);
             return Ok(handled);
         }
 
         [HttpPost(Name = "ManageHotel")]
-        public async Task<ActionResult<ApiResponse<object>>> ManageHotel(ManageRequest request)
+        public async Task<ActionResult<ApiResponse<object>>> ManageHotel(ManageHotelRequest request)
         {
             var handled = await _mediator.Send(request);
             return Ok(handled);

@@ -10,7 +10,7 @@ namespace TravelAgencyBack.Domain.Test
         [SetUp]
         public void Setup()
         {
-            Room = new Room("202A", RoomType.B, 20000, 10, 30, 2, "Medallo");
+            Room = new Room(null, "202A", RoomType.Matrimonial, 20000, 10, 30, 2, "Medallo", "https://algo.com/img.png");
             var phone = new Phone(57, "3116390221");
             var document = new Document(DocumentType.CC, "1065852002");
             var email = "martinez_o@hotmail.es";

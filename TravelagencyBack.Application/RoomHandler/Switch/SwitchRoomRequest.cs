@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelagencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.Switch
+namespace TravelagencyBack.Application.RoomHandler.Switch
 {
-    public class SwitchHotelRequest : IRequest<ApiResponse<object>>
+    public class SwitchRoomRequest : IRequest<ApiResponse<object>>
     {
         public string Id { get; set; }
         public bool Enabled { get; set; }

@@ -7,23 +7,28 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelagencyBack.Application.Base;
 using TravelagencyBack.Application.Security.Authentication;
+using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.HotelHanlder.Add
+namespace TravelagencyBack.Application.RoomHandler.Add
 {
-    public class ManageCommand : IRequestHandler<ManageRequest, ApiResponse<object>>
+    public class ManageRoomCommand : IRequestHandler<ManageRoomRequest, ApiResponse<object>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IGenericRepository<TravelAgencyBack.Domain.Hotel> _hotelRepository;
-        public ManageCommand(IUnitOfWork unitOfWork)
+        private readonly IGenericRepository<Hotel> _hotelRepository;
+        private readonly IGenericRepository<Room> _roomRepository;
+
+        public ManageRoomCommand(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _hotelRepository = unitOfWork.GenericRepository<TravelAgencyBack.Domain.Hotel>();
+            _roomRepository = unitOfWork.GenericRepository<Room>();
+            _hotelRepository = unitOfWork.GenericRepository<Hotel>();
         }
-        public Task<ApiResponse<object>> Handle(ManageRequest request, CancellationToken cancellationToken)
+
+        public Task<ApiResponse<object>> Handle(ManageRoomRequest request, CancellationToken cancellationToken)
         {
             ApiResponse<object> response;
-            if(_hotelRepository is null)
+            if(_roomRepository is null)
             {
                 response = new ApiResponse<object>()
                 {
@@ -45,18 +50,41 @@ namespace TravelagencyBack.Application.HotelHanlder.Add
                 return Task.FromResult(response);
             }
 
-            TravelAgencyBack.Domain.Hotel? hotel;
+            var hotel = _hotelRepository.Find(request.HotelId);
+
+            if (hotel is null)
+            {
+                response = new ApiResponse<object>()
+                {
+                    Data = default,
+                    Message = Resources.ErrorResponsesES.NOT_FOUND,
+                    Status = HttpStatusCode.NotFound
+                };
+                return Task.FromResult(response);
+            }
+
+            Room? room;
             var message = "";
             if (string.IsNullOrEmpty(request.Id))
             {
-                hotel = new TravelAgencyBack.Domain.Hotel(request.Name, request.Description, request.ImageUrl);
-                _hotelRepository.Add(hotel);
+                room = new Room(
+                    hotel,
+                    request.Location, 
+                    request.Type, 
+                    request.Cost, 
+                    request.Tax, 
+                    request.Profit, 
+                    request.Capacity, 
+                    request.City,
+                    request.ImageUrl
+                );
+                _roomRepository.Add(room);
                 message = Resources.OkResponseES.RESOURCE_CREATED;
             }
             else
             {
-                hotel = _hotelRepository.Find(request.Id);
-                if(hotel is null)
+                room = _roomRepository.Find(request.Id);
+                if(room is null)
                 {
                     response = new ApiResponse<object>()
                     {
@@ -67,8 +95,8 @@ namespace TravelagencyBack.Application.HotelHanlder.Add
                     return Task.FromResult(response);
                 }
 
-                hotel.Update(request.Name, request.Description, request.ImageUrl);
-                _hotelRepository.Update(hotel);
+                room.Update(request.Location, request.Type, request.Cost, request.Tax, request.Profit, request.Capacity, request.City);
+                _roomRepository.Update(room);
                 message = Resources.OkResponseES.RESOURCE_MODIFIED;
             }
 
@@ -76,7 +104,7 @@ namespace TravelagencyBack.Application.HotelHanlder.Add
             response = new ApiResponse<object>()
             {
                 Status = System.Net.HttpStatusCode.OK,
-                Message = string.Format(message, new object[] { hotel.Id }),
+                Message = string.Format(message, new object[] { room.Id }),
                 Data = default
             };
             return Task.FromResult(response);
