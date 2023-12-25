@@ -78,7 +78,8 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
             List<Person> guests = request.Guests.Select(guestReq =>
             {
                 var document = new Document(guestReq.DocumentType, guestReq.Document);
-                return new Person(guestReq.LastName, guestReq.Birth, guestReq.Gender, document, guestReq.Email);
+                var phone = new Phone(guestReq.Indicative, guestReq.Phone);
+                return new Person(guestReq.Name, guestReq.LastName, guestReq.Birth, guestReq.Gender, document, guestReq.Email, phone);
             }).ToList();
 
             var phone = new Phone(request.EmergencyContact.Indicative, request.EmergencyContact.Phone);

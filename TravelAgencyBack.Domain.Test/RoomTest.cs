@@ -10,22 +10,14 @@ namespace TravelAgencyBack.Domain.Test
         [SetUp]
         public void Setup()
         {
-            Room = new Room(null, "202A", RoomType.Matrimonial, 20000, 10, 30, 2, "Medallo", "https://algo.com/img.png");
+            var hotel = new Hotel("Hotel prueba", "Descripción hotel prueba", "https://algo.com/img.png");
+            Room = hotel.AddRoom("202A", RoomType.Matrimonial, 20000, 10, 30, 2, "Medallo", "https://algo.com/img.png");
             var phone = new Phone(57, "3116390221");
             var document = new Document(DocumentType.CC, "1065852002");
             var email = "martinez_o@hotmail.es";
             var traveler = new Traveler("Luis", "Alfonso", DateTime.Now.AddYears(-20), phone, document, Gender.Male, email, "");
             var guests = new List<Person> {
-                new Person()
-                {
-                    Gender = Gender.Male,
-                    Birth = DateTime.Now.AddYears(-18),
-                    Document = document,
-                    Email = email,
-                    LastName = "Lopez",
-                    Name = "David",
-                    Phone = phone
-                }
+                new Person("David", "Lopez", DateTime.Now.AddYears(-18), Gender.Male, document, email, phone)
             };
             var contact = new Contact("Lorena", phone);
             Room.AddBooking(traveler, guests, contact, DateTime.Now.AddDays(2), DateTime.Now.AddDays(5), "Medallo"); 

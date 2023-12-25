@@ -9,12 +9,12 @@ namespace TravelAgencyBack.Domain
 {
     public class Booking : Entity
     {
-        public Room Room { get; set; }
-        public Traveler Traveler { get; set; }
-        public List<Person> Guests { get; set; }
-        public Contact EmergencyContact { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime End { get; set; }
+        public Room Room { get; private set; }
+        public Traveler Traveler { get; private set; }
+        public List<Person> Guests { get; private set; }
+        public Contact EmergencyContact { get; private set; }
+        public DateTime Start { get; private set; }
+        public DateTime End { get; private set; }
         public int QuantityPeople => Guests.Count + 1;
         public double Price => GetPrice();
 
@@ -23,7 +23,7 @@ namespace TravelAgencyBack.Domain
             
         }
 
-        public Booking(Room room, Traveler traveler, List<Person> guests, Contact emergencyContact, DateTime start, DateTime end) : base()
+        internal Booking(Room room, Traveler traveler, List<Person> guests, Contact emergencyContact, DateTime start, DateTime end) : base()
         {
             Room = room;
             Traveler = traveler;

@@ -17,24 +17,24 @@ namespace TravelAgencyBack.Domain
 
     public class Room : Entity
     {
-        public Hotel Hotel { get; set; }
-        public string Location { get; set; }
-        public RoomType Type { get; set; }
-        public double Cost { get; set; }
-        public double Tax { get; set; }
-        public double Profit { get; set; }
-        public int Capacity { get; set; }
-        public string City { get; set; }
-        public string ImageUrl { get; set; }
+        public Hotel Hotel { get; private set; }
+        public string Location { get; private set; }
+        public RoomType Type { get; private set; }
+        public double Cost { get; private set; }
+        public double Tax { get; private set; }
+        public double Profit { get; private set; }
+        public int Capacity { get; private set; }
+        public string City { get; private set; }
+        public string ImageUrl { get; private set; }
         public double Price => GetPrice();
-        public List<Booking> Bookings { get; set; }
+        public List<Booking> Bookings { get; private set; }
 
         public Room()
         {
             
         }
 
-        public Room(Hotel hotel, string location, RoomType type, double cost, double tax, double profit, int capacity, string city, string imageUrl) : base()
+        internal Room(Hotel hotel, string location, RoomType type, double cost, double tax, double profit, int capacity, string city, string imageUrl) : base()
         {
             //Hotel = hotel;
             Location = location;
