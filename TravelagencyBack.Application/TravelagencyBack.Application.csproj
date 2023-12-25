@@ -38,8 +38,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="BookingHandler\Switch\" />
-  </ItemGroup>
-
 </Project>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TravelAgencyBack.Domain.Contracts;
+using TravelAgencyBack.Domain.ValueObjects;
 
 namespace TravelAgencyBack.Domain.Base
 {
@@ -13,24 +14,24 @@ namespace TravelAgencyBack.Domain.Base
         Traveler
     }
 
-    public class Credential : Entity
+    public class Credential : Contact
     {
         public string User { get; private set; }
         public Rol Rol { get; private set; }
         public string Password { get; private set; }
-        public Contact Contact { get; private set; }
 
         public Credential()
         {
 
         }
 
-        public Credential(string user, string password, Rol rol, Contact contact)
+        public Credential(string user, string name, string password, Rol rol, Phone phone)
         {
             User = user;
             Password = password;
             Rol = rol;
-            Contact = contact;
+            Name = name;
+            Phone = phone;
         }
     }
 }

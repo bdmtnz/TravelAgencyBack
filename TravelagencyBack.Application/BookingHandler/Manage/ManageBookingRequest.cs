@@ -13,7 +13,7 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
     public class ManageBookingRequest : IRequest<ApiResponse<object>>
     {
         public string RoomId { get; set; }
-        public string TravelerId { get; set; }
+        public string CredentialId { get; set; }
         public List<BookingPersonRequest> Guests { get; set; }
         public BookingContactRequest EmergencyContact { get; set; }
         public DateTime Start { get; set; }
@@ -32,9 +32,9 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
     {
         public DocumentType DocumentType { get; set; }
         public string Document { get; set; }
-        public string LastName { get; private set; }
-        public DateTime Birth { get; private set; }
-        public Gender Gender { get; private set; }
-        public string Email { get; private set; }
+        public string LastName { get; set; }
+        public DateTime Birth { get; set; }
+        public Gender Gender { get; set; }
+        public string Email { get; set; }
     }
 }

@@ -27,7 +27,7 @@ namespace TravelAgencyBack.Domain
             Document = document;
             Email = email;
             LastName = lastName;
-            Credential = new Credential(email, password, Rol.Traveler, this);
+            Credential = new Credential(email, name, password, Rol.Traveler, phone);
             Bookings = new List<Booking>();
         }
 

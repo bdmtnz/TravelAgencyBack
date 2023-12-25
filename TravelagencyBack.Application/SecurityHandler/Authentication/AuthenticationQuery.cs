@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.Contracts;
 using TravelAgencyBack.Domain.Resources;
@@ -27,13 +28,11 @@ namespace TravelAgencyBack.Application.Security.Authentication
                 var seedCredential = new List<Credential>()
                 {
                     new Credential(
-                        "admin@admin.com", 
+                        "admin@admin.com",
+                        "Admin",
                         "", 
-                        Rol.Agency, 
-                        new Contact(
-                            "Admin", 
-                            new TravelAgencyBack.Domain.ValueObjects.Phone(57, "3116390221")
-                        )
+                        Rol.Agency,
+                        new TravelAgencyBack.Domain.ValueObjects.Phone(57, "3116390221")
                     )
                 };
                 _credentialRepository.AddRange(seedCredential);
@@ -76,7 +75,8 @@ namespace TravelAgencyBack.Application.Security.Authentication
             {
                 Data = new AuthenticationResponse()
                 {
-                    Name = credential.Contact.Name,
+                    Id = credential.Id,
+                    Name = credential.Name,
                     Rol = new EnumResponse<Rol>(credential.Rol),
                     Token = Guid.NewGuid().ToString()
                 },

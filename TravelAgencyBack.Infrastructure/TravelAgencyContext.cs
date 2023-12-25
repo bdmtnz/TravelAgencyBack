@@ -40,6 +40,7 @@ namespace TravelAgencyBack.Infrastructure
             //Value objects persist config
             modelBuilder.ApplyConfiguration(new HotelConfiguration());
             modelBuilder.ApplyConfiguration(new RoomConfiguration());
+            modelBuilder.ApplyConfiguration(new CredentialConfiguration());
             modelBuilder.ApplyConfiguration(new AgencyConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());

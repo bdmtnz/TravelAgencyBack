@@ -10,6 +10,7 @@ namespace TravelAgencyBack.Application.Security.Authentication
 {
     public class AuthenticationResponse
     {
+        public string Id { get; set; }
         public string Name { get; set; }
         public EnumResponse<Rol> Rol { get; set; }
         public string Token { get; set; }

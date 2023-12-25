@@ -23,7 +23,7 @@ namespace TravelAgencyBack.Domain
         public Agency(string name, Phone phone, string user, string password) 
             : base(name, phone)
         {
-            Credential = new Credential(user, password, Rol.Agency, this);
+            Credential = new Credential(user, name, password, Rol.Agency, phone);
             Hotels = new List<Hotel>();
             Clients = new List<Person>();
         }
