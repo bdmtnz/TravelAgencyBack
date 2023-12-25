@@ -19,8 +19,12 @@ namespace TravelAgencyBack.Domain.ValueObjects
 
     public class Document : IValueObject
     {
-        public DocumentType Type { get; set; }
-        public string Value { get; set; }
+        public DocumentType Type { get; private set; }
+        public string Value { get; private set; }
+        public Document()
+        {
+            
+        }
         public Document(DocumentType type, string value)
         {
             Type = type;

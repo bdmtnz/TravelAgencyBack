@@ -13,6 +13,11 @@ namespace TravelAgencyBack.Domain.ValueObjects
         public int Indicative { get; private set; }
         public string Value { get; private set; }
 
+        public Phone()
+        {
+            
+        }
+
         public Phone(int indicative, string value)
         {
             Indicative = indicative;

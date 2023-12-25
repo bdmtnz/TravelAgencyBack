@@ -1,4 +1,5 @@
 ﻿using TravelAgencyBack.Domain.Base;
+using TravelAgencyBack.Domain.ValueObjects;
 
 namespace TravelAgencyBack.Domain
 {

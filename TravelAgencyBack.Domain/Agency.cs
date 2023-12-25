@@ -9,7 +9,7 @@ using TravelAgencyBack.Domain.ValueObjects;
 
 namespace TravelAgencyBack.Domain
 {
-    public class Agency : Contact
+    public class Agency : Entity
     {
         public Credential Credential { get; set; }
         public List<Hotel> Hotels { get; set; }
@@ -20,8 +20,7 @@ namespace TravelAgencyBack.Domain
             
         }
 
-        public Agency(string name, Phone phone, string user, string password) 
-            : base(name, phone)
+        public Agency(string name, Phone phone, string user, string password)
         {
             Credential = new Credential(user, name, password, Rol.Agency, phone);
             Hotels = new List<Hotel>();

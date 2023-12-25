@@ -20,7 +20,6 @@ namespace TravelAgencyBack.Infrastructure.Configurations
             travelerConfiguration.Navigation(traveler => traveler.Credential).AutoInclude();
             travelerConfiguration.Navigation(traveler => traveler.Bookings).AutoInclude();
             travelerConfiguration.OwnsOne(o => o.Document);
-            travelerConfiguration.OwnsOne(o => o.Phone);
 
             //contactConfiguration.Property<DateTime>("OrderDate").IsRequired();
 

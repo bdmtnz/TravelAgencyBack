@@ -14,11 +14,12 @@ namespace TravelAgencyBack.Domain.Base
         Traveler
     }
 
-    public class Credential : Contact
+    public class Credential : Entity
     {
         public string User { get; private set; }
         public Rol Rol { get; private set; }
         public string Password { get; private set; }
+        public Contact Contact { get; private set; }
 
         public Credential()
         {
@@ -30,8 +31,7 @@ namespace TravelAgencyBack.Domain.Base
             User = user;
             Password = password;
             Rol = rol;
-            Name = name;
-            Phone = phone;
+            Contact = new Contact(name, phone);
         }
     }
 }

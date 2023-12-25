@@ -20,10 +20,8 @@ namespace TravelAgencyBack.Domain
 
         public Traveler(string name, string lastName, DateTime birth, Phone phone, Document document, Gender gender, string email, string password) : base()
         {
-            Name = name;
             Birth = birth;
             Gender = gender;
-            Phone = phone;
             Document = document;
             Email = email;
             LastName = lastName;

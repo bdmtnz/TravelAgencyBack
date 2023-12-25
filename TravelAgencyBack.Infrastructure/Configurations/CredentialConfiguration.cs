@@ -14,6 +14,7 @@ namespace TravelAgencyBack.Infrastructure.Configurations
         public void Configure(EntityTypeBuilder<Credential> credentialConfiguration)
         {
             //Address value object persisted as owned entity in EF Core 2.0
+            credentialConfiguration.OwnsOne(credential => credential.Contact);
 
             //credentialConfiguration.Property<DateTime>("OrderDate").IsRequired();
 
