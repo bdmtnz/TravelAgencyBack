@@ -13,9 +13,10 @@ namespace TravelAgencyBack.Domain
         public Traveler Traveler { get; set; }
         public List<Person> Guests { get; set; }
         public Contact EmergencyContact { get; set; }
-        public int QuantityPeople => Guests.Count + 1;
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
+        public int QuantityPeople => Guests.Count + 1;
+        public double Price => GetPrice();
 
         public Booking()
         {
@@ -32,5 +33,10 @@ namespace TravelAgencyBack.Domain
             End = end;
         }
 
+        private double GetPrice()
+        {
+            var days = (End - Start).Days;
+            return days * Room.Price;
+        }
     }
 }

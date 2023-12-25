@@ -3,7 +3,7 @@ using TravelAgencyBack.Domain.ValueObjects;
 
 namespace TravelAgencyBack.Domain.Test
 {
-    public class Tests
+    public class RoomTest
     {
         private Room Room { get; set; }
 
