@@ -77,8 +77,8 @@ namespace TravelagencyBack.Application.RoomHandler.Add
                     request.City,
                     request.ImageUrl
                 );
-                _roomRepository.Add(room);
-                _unitOfWork.Commit();
+                //_roomRepository.Add(room);
+                //_unitOfWork.Commit();
                 _hotelRepository.Update(hotel);
                 _unitOfWork.Commit();
                 message = Resources.OkResponseES.RESOURCE_CREATED;

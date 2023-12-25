@@ -38,4 +38,9 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="BookingHandler\Filter\" />
+    <Folder Include="BookingHandler\Switch\" />
+  </ItemGroup>
+
 </Project>
