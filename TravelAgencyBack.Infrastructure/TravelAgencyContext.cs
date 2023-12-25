@@ -44,7 +44,7 @@ namespace TravelAgencyBack.Infrastructure
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new TravelerConfiguration());
-            modelBuilder.ApplyConfiguration(new SeedConfiguration());
+            modelBuilder.ApplyConfiguration(new BookingConfiguration());
 
             base.OnModelCreating(modelBuilder);
             //...Additional type configurations
