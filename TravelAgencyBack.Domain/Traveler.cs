@@ -8,8 +8,9 @@ using TravelAgencyBack.Domain.ValueObjects;
 
 namespace TravelAgencyBack.Domain
 {
-    public class Traveler : Person
+    public class Traveler : Entity
     {
+        public Person Person { get; set; }
         public Credential Credential { get; set; }
         public List<Booking> Bookings { get; set; }
 
@@ -20,11 +21,7 @@ namespace TravelAgencyBack.Domain
 
         public Traveler(string name, string lastName, DateTime birth, Phone phone, Document document, Gender gender, string email, string password) : base()
         {
-            Birth = birth;
-            Gender = gender;
-            Document = document;
-            Email = email;
-            LastName = lastName;
+            Person = new Person(name, lastName, birth, gender, document, email, phone);
             Credential = new Credential(email, name, password, Rol.Traveler, phone);
             Bookings = new List<Booking>();
         }

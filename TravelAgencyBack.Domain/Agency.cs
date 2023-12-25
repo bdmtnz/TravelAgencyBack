@@ -13,7 +13,7 @@ namespace TravelAgencyBack.Domain
     {
         public Credential Credential { get; set; }
         public List<Hotel> Hotels { get; set; }
-        public List<Person> Clients { get; set; }
+        public List<Traveler> Clients { get; set; }
 
         public Agency()
         {
@@ -24,7 +24,7 @@ namespace TravelAgencyBack.Domain
         {
             Credential = new Credential(user, name, password, Rol.Agency, phone);
             Hotels = new List<Hotel>();
-            Clients = new List<Person>();
+            Clients = new List<Traveler>();
         }
 
         public DomainResponse<Hotel> AddHotel(Hotel hotel)
