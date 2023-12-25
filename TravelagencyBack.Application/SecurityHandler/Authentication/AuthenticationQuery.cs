@@ -5,12 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.Contracts;
 using TravelAgencyBack.Domain.Resources;
 
-namespace TravelagencyBack.Application.Security.Authentication
+namespace TravelAgencyBack.Application.Security.Authentication
 {
     public class AuthenticationQuery : IRequestHandler<AuthenticationRequest, ApiResponse<AuthenticationResponse>>
     {

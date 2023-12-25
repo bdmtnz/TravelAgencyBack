@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelAgencyBack.Domain.Base;
 
-namespace TravelagencyBack.Application.Base
+namespace TravelAgencyBack.Application.Base
 {
     public class ApiResponse<T> : Response<T>
     {

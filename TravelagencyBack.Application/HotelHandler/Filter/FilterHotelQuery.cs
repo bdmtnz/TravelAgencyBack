@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.Hotelhandler.Filter
+namespace TravelAgencyBack.Application.Hotelhandler.Filter
 {
     public class FilterHotelQuery : IRequestHandler<FilterHotelRequest, ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>>
     {

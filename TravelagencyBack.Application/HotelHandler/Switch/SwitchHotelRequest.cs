@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.HotelHandler.Switch
+namespace TravelAgencyBack.Application.HotelHandler.Switch
 {
     public class SwitchHotelRequest : IRequest<ApiResponse<object>>
     {

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.Hotelhandler.Filter
+namespace TravelAgencyBack.Application.Hotelhandler.Filter
 {
     public class FilterHotelRequest : IRequest<ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>>
     {

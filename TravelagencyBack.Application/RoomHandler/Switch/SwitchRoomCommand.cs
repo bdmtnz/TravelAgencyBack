@@ -5,11 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.RoomHandler.Switch
+namespace TravelAgencyBack.Application.RoomHandler.Switch
 {
     public class SwitchRoomCommand : IRequestHandler<SwitchRoomRequest, ApiResponse<object>>
     {

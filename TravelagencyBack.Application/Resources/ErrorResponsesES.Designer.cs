@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TravelagencyBack.Application.Resources {
+namespace TravelAgencyBack.Application.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace TravelagencyBack.Application.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TravelagencyBack.Application.Resources.ErrorResponsesES", typeof(ErrorResponsesES).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TravelAgencyBack.Application.Resources.ErrorResponsesES", typeof(ErrorResponsesES).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 using TravelAgencyBack.Domain.ValueObjects;
 
-namespace TravelagencyBack.Application.Security.Signup
+namespace TravelAgencyBack.Application.Security.Signup
 {
     public class SignupCommand : IRequestHandler<SignupRequest, ApiResponse<object>>
     {

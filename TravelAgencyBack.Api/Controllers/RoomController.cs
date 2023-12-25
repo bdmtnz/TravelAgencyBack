@@ -1,9 +1,9 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TravelagencyBack.Application.Base;
-using TravelagencyBack.Application.RoomHandler.Add;
-using TravelagencyBack.Application.RoomHandler.Filter;
-using TravelagencyBack.Application.RoomHandler.Switch;
+using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Application.RoomHandler.Add;
+using TravelAgencyBack.Application.RoomHandler.Filter;
+using TravelAgencyBack.Application.RoomHandler.Switch;
 using TravelAgencyBack.Domain;
 
 namespace TravelAgencyBack.Api.Controllers

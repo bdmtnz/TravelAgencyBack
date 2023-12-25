@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain;
 
-namespace TravelagencyBack.Application.RoomHandler.Add
+namespace TravelAgencyBack.Application.RoomHandler.Add
 {
     public class ManageRoomRequest : IRequest<ApiResponse<object>>
     {

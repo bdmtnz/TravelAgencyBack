@@ -5,11 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
-using TravelagencyBack.Application.Security.Authentication;
+using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Application.Security.Authentication;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.Hotelhandler.Add
+namespace TravelAgencyBack.Application.Hotelhandler.Add
 {
     public class ManageHotelCommand : IRequestHandler<ManageHotelRequest, ApiResponse<object>>
     {

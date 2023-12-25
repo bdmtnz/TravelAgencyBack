@@ -5,9 +5,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.Hotelhandler.Add
+namespace TravelAgencyBack.Application.Hotelhandler.Add
 {
     public class ManageHotelRequest : IRequest<ApiResponse<object>>
     {

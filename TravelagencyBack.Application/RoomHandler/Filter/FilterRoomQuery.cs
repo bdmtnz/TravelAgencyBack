@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.RoomHandler.Filter
+namespace TravelAgencyBack.Application.RoomHandler.Filter
 {
     public class FilterRoomQuery : IRequestHandler<FilterRoomRequest, ApiResponse<IEnumerable<Room>>>
     {

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.Security.Authentication
+namespace TravelAgencyBack.Application.Security.Authentication
 {
     public class AuthenticationRequest : IRequest<ApiResponse<AuthenticationResponse>>
     {

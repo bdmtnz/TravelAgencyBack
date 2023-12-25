@@ -5,12 +5,12 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
-using TravelagencyBack.Application.Security.Authentication;
+using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Application.Security.Authentication;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.RoomHandler.Add
+namespace TravelAgencyBack.Application.RoomHandler.Add
 {
     public class ManageRoomCommand : IRequestHandler<ManageRoomRequest, ApiResponse<object>>
     {

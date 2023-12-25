@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Api", "Tra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Domain", "TravelAgencyBack.Domain\TravelAgencyBack.Domain.csproj", "{F0BCF59A-32F1-4B9D-9921-D4A77A4232F0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelagencyBack.Application", "TravelagencyBack.Application\TravelagencyBack.Application.csproj", "{649B3A02-0EB4-48BD-AE07-577F65E61DDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Application", "TravelagencyBack.Application\TravelAgencyBack.Application.csproj", "{649B3A02-0EB4-48BD-AE07-577F65E61DDD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Infrastructure", "TravelAgencyBack.Infrastructure\TravelAgencyBack.Infrastructure.csproj", "{16F75313-6CA9-40C7-BE62-29955DD79811}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgencyBack.Domain.Test", "TravelAgencyBack.Domain.Test\TravelAgencyBack.Domain.Test.csproj", "{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TravelAgencyBack.Domain.Test", "TravelAgencyBack.Domain.Test\TravelAgencyBack.Domain.Test.csproj", "{B9E5D233-5BD3-4865-A565-9F6751B8C7ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

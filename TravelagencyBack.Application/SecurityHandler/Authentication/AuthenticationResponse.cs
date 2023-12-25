@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain.Base;
 
-namespace TravelagencyBack.Application.Security.Authentication
+namespace TravelAgencyBack.Application.Security.Authentication
 {
     public class AuthenticationResponse
     {

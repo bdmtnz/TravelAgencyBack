@@ -1,8 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using TravelagencyBack.Application.Base;
-using TravelagencyBack.Application.Security.Authentication;
-using TravelagencyBack.Application.Security.Signup;
+using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Application.Security.Authentication;
+using TravelAgencyBack.Application.Security.Signup;
 
 namespace TravelAgencyBack.Api.Controllers
 {

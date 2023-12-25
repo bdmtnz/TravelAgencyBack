@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TravelagencyBack.Application.Base;
+using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.ValueObjects;
 
-namespace TravelagencyBack.Application.BookingHandler.Manage
+namespace TravelAgencyBack.Application.BookingHandler.Manage
 {
     public class ManageBookingRequest : IRequest<ApiResponse<object>>
     {
@@ -18,6 +18,7 @@ namespace TravelagencyBack.Application.BookingHandler.Manage
         public BookingContactRequest EmergencyContact { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
+        public string City { get; set; }
     }
 
     public class BookingContactRequest
