@@ -42,7 +42,6 @@ namespace TravelAgencyBack.Infrastructure
             modelBuilder.ApplyConfiguration(new RoomConfiguration());
             modelBuilder.ApplyConfiguration(new CredentialConfiguration());
             modelBuilder.ApplyConfiguration(new AgencyConfiguration());
-            modelBuilder.ApplyConfiguration(new ContactConfiguration());
             modelBuilder.ApplyConfiguration(new PersonConfiguration());
             modelBuilder.ApplyConfiguration(new TravelerConfiguration());
             modelBuilder.ApplyConfiguration(new BookingConfiguration());

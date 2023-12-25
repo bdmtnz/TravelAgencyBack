@@ -28,7 +28,7 @@ namespace TravelAgencyBack.Domain.Base
 
         }
 
-        public Person(string name, string lastName, DateTime birth, Gender gender, Document document, string email, Phone phone) : base(name, phone)
+        public Person(string name, string lastName, DateTime birth, Gender gender, Document document, string email, Phone phone)
         {
             Contact = new Contact(name, phone);
             LastName = lastName;

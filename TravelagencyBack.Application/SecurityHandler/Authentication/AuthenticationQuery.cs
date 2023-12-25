@@ -76,7 +76,7 @@ namespace TravelAgencyBack.Application.Security.Authentication
                 Data = new AuthenticationResponse()
                 {
                     Id = credential.Id,
-                    Name = credential.Name,
+                    Name = credential.Contact.Name,
                     Rol = new EnumResponse<Rol>(credential.Rol),
                     Token = Guid.NewGuid().ToString()
                 },
