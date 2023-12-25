@@ -17,6 +17,7 @@ namespace TravelRoomBack.Infrastructure.Configurations
             //Address value object persisted as owned entity in EF Core 2.0
             //RoomConfiguration.OwnsOne(o => o.Credential);
             RoomConfiguration.Navigation(room => room.Hotel).AutoInclude();
+            RoomConfiguration.Navigation(room => room.Bookings).AutoInclude();
 
             //contactConfiguration.Property<DateTime>("OrderDate").IsRequired();
 
