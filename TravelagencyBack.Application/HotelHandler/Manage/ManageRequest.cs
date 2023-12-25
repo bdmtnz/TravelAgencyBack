@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelagencyBack.Application.Base;
 
-namespace TravelagencyBack.Application.Hotel.Add
+namespace TravelagencyBack.Application.HotelHanlder.Add
 {
     public class ManageRequest : IRequest<ApiResponse<object>>
     {

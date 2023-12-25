@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using TravelagencyBack.Application.Base;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.Hotel.Filter
+namespace TravelagencyBack.Application.HotelHanlder.Filter
 {
     public class FilterQuery : IRequestHandler<FilterRequest, ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>>
     {

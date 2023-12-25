@@ -9,7 +9,7 @@ using TravelagencyBack.Application.Base;
 using TravelagencyBack.Application.Security.Authentication;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelagencyBack.Application.Hotel.Add
+namespace TravelagencyBack.Application.HotelHanlder.Add
 {
     public class ManageCommand : IRequestHandler<ManageRequest, ApiResponse<object>>
     {
