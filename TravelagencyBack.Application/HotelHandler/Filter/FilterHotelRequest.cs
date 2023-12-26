@@ -10,6 +10,7 @@ namespace TravelAgencyBack.Application.Hotelhandler.Filter
 {
     public class FilterHotelRequest : IRequest<ApiResponse<IEnumerable<TravelAgencyBack.Domain.Hotel>>>
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
+        public bool? Enabled { get; set; }
     }
 }

@@ -18,7 +18,7 @@ namespace TravelAgencyBack.Application.Security.Signup
         public string LastName { get; set; }
         public DateTime Birth { get; set; }
         public Gender Gender { get; set; }
-        public int Indivative { get; set; }
+        public int Indicative { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

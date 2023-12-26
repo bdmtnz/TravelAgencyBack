@@ -36,7 +36,7 @@ namespace TravelAgencyBack.Application.Security.Signup
                 return Task.FromResult(response);
             }
 
-            var phone = new Phone(request.Indivative, request.Phone);
+            var phone = new Phone(request.Indicative, request.Phone);
             var document = new Document(request.DocumentType, request.Document);
             var traveler = new Traveler(request.Name, request.LastName, request.Birth, phone, document, request.Gender, request.Email, request.Password);
 
