@@ -33,11 +33,12 @@ namespace TravelAgencyBack.Infrastructure
 
         public IEnumerable<T> FindBy(Func<T, bool> predicate, string includes = "")
         {
-            var query = _dbset.Where(predicate);
+            var query = _dbset.AsQueryable();
             if (!string.IsNullOrEmpty(includes)) {
-                query = _dbset.Include(includes);
+                query.IgnoreAutoIncludes().Include(includes);
             }
-            return query;
+
+            return query.Where(predicate);
         }
 
         public T? FirstOrDefault()

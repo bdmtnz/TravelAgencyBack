@@ -28,7 +28,7 @@ namespace TravelAgencyBack.Domain
         public string City { get; private set; }
         public string ImageUrl { get; private set; }
         public double Price => GetPrice();
-        public List<Booking> Bookings { get; private set; }
+        public ICollection<Booking> Bookings { get; private set; }
 
         public Room()
         {
@@ -56,7 +56,7 @@ namespace TravelAgencyBack.Domain
             return Cost + taxxes + profit;
         }
 
-        public DomainResponse<Booking> AddBooking(Traveler traveler, List<Person> guests, Contact emergencyContact, DateTime start, DateTime end, string city)
+        public DomainResponse<Booking> AddBooking(Traveler traveler, ICollection<Person> guests, Contact emergencyContact, DateTime start, DateTime end, string city)
         {
             var quantityPeople = guests.Count + 1;
             var canBooking = CanBooking(quantityPeople, start, end, city);

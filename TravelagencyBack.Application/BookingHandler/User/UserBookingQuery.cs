@@ -27,7 +27,7 @@ namespace TravelAgencyBack.Application.BookingHandler.User
 
             Func<Booking, bool> filter = (booking) =>
             {
-                return booking.Traveler.Id == request.TravelerId;
+                return booking.Traveler.Credential.Id == request.CredentialId;
             };
 
             bookings = _bookingRepository.FindBy(filter);

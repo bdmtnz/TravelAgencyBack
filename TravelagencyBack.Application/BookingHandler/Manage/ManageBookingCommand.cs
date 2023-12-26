@@ -50,7 +50,6 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
                 };
                 return Task.FromResult(response);
             }
-            var travelers = _travelerRepository.GetAll();
             var traveler = _travelerRepository.FindBy(traveler => traveler.Credential.Id == request.CredentialId).FirstOrDefault();
             if (traveler is null)
             {

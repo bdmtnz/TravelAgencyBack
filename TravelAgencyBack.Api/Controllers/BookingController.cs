@@ -29,10 +29,10 @@ namespace TravelAgencyBack.Api.Controllers
             return Ok(handled);
         }
 
-        [HttpGet("Traveler/{TravelerId}", Name = "GetUserBookings")]
-        public async Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetUserBookings(string TravelerId)
+        [HttpGet("Traveler/{CredentialId}", Name = "GetUserBookings")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetUserBookings(string CredentialId)
         {
-            var request = new UserBookingRequest(TravelerId);
+            var request = new UserBookingRequest(CredentialId);
             var handled = await _mediator.Send(request);
             return Ok(handled);
         }

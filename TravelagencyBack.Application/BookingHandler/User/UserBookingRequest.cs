@@ -13,7 +13,7 @@ namespace TravelAgencyBack.Application.BookingHandler.User
     public class UserBookingRequest : IRequest<ApiResponse<IEnumerable<Booking>>>
     {
         [Required]
-        public string TravelerId { get; set; }
+        public string CredentialId { get; set; }
 
         public UserBookingRequest()
         {
@@ -22,7 +22,7 @@ namespace TravelAgencyBack.Application.BookingHandler.User
 
         public UserBookingRequest(string travelerId)
         {
-            TravelerId = travelerId;
+            CredentialId = travelerId;
         }
     }
 }

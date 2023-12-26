@@ -40,7 +40,7 @@ namespace TravelAgencyBack.Domain.Test
         [Test]
         public void FullDateMatchButPreviusBookingDisabled()
         {
-            var bookingDisabled = Room.Bookings.Find(booking => !booking.Enabled);
+            var bookingDisabled = Room.Bookings.FirstOrDefault(booking => !booking.Enabled);
             var canBooking = Room.CanBooking(2, bookingDisabled.Start, bookingDisabled.End, "Medallo");
             Assert.IsTrue(canBooking, "Should can create a booking with this dates");
         }

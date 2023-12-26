@@ -18,7 +18,6 @@ namespace TravelAgencyBack.Infrastructure.Configurations
             //BookingConfiguration.Navigation(booking => booking.Room).AutoInclude();
             BookingConfiguration.Navigation(booking => booking.Guests).AutoInclude();
             BookingConfiguration.Navigation(booking => booking.Traveler).AutoInclude();
-            BookingConfiguration.HasOne(booking => booking.Room);
             BookingConfiguration.OwnsOne(booking => booking.EmergencyContact);
 
             //CredentialConfiguration.Property<DateTime>("OrderDate").IsRequired();
