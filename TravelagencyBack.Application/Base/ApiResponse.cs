@@ -22,11 +22,16 @@ namespace TravelAgencyBack.Application.Base
         public EnumResponse(T TValue)
         {
             var type = TValue.GetType();
-            var values = Enum.GetValues(type);
-            var valuesParsed = values.OfType<KeyValuePair<string, int>>().ToList();
+            var values = type.GetEnumValues();
+            List<string> names = new List<string>();
+            for (int i = 0; i < values.Length; i++)
+            {
+                var obj = values.GetValue(i);
+                if(obj is null) continue;
+                names.Add(obj.ToString());
+            }
             Name = TValue.ToString();
-            var tuple = valuesParsed.FirstOrDefault(value => value.Key.ToLower() == Name.ToLower());
-            Id = tuple.Value;
+            Id = names.FindIndex(name => name == Name);
         }
     }
 }

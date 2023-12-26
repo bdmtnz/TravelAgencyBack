@@ -1,6 +1,8 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Application.TypeHandler.Room;
+using TravelAgencyBack.Application.TypeHandler.Signup;
 
 namespace TravelAgencyBack.Api.Controllers
 {
@@ -17,17 +19,17 @@ namespace TravelAgencyBack.Api.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet("Authentication", Name = "Authentication")]
-        public async Task<ActionResult<ApiResponse<AuthenticationResponse>>> GetAuthentication()
+        [HttpGet("Room", Name = "RoomTypes")]
+        public async Task<ActionResult<ApiResponse<RoomTypeResponse>>> GetRoomTypes()
         {
-            var handled = await _mediator.Send(request);
+            var handled = await _mediator.Send(new RoomTypeRequest());
             return Ok(handled);
         }
 
-        [HttpGet("Signup", Name = "Signup")]
-        public async Task<ActionResult<ApiResponse<object>>> Signup()
+        [HttpGet("Signup", Name = "SignupTypes")]
+        public async Task<ActionResult<ApiResponse<SignupTypeResponse>>> GetSignupTypes()
         {
-            var handled = await _mediator.Send(request);
+            var handled = await _mediator.Send(new SignupTypeRequest());
             return Ok(handled);
         }
     }
