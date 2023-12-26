@@ -4,6 +4,7 @@ using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Application.BookingHandler.Filter;
 using TravelAgencyBack.Application.BookingHandler.Manage;
 using TravelAgencyBack.Application.BookingHandler.Switch;
+using TravelAgencyBack.Application.BookingHandler.User;
 using TravelAgencyBack.Domain;
 
 namespace TravelAgencyBack.Api.Controllers
@@ -24,6 +25,14 @@ namespace TravelAgencyBack.Api.Controllers
         [HttpPost("Filter", Name = "GetBookings")]
         public async Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetBookings(FilterBookingRequest request)
         {
+            var handled = await _mediator.Send(request);
+            return Ok(handled);
+        }
+
+        [HttpGet("Traveler/{TravelerId}", Name = "GetUserBookings")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<Booking>>>> GetUserBookings(string TravelerId)
+        {
+            var request = new UserBookingRequest(TravelerId);
             var handled = await _mediator.Send(request);
             return Ok(handled);
         }

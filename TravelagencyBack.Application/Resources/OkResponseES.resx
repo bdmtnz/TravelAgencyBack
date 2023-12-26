@@ -120,6 +120,9 @@
   <data name="RESOURCE_CREATED" xml:space="preserve">
     <value>Se ha creado el recurso con identificador '{0}' exitosamente.</value>
   </data>
+  <data name="RESOURCE_CREATED_BY" xml:space="preserve">
+    <value>Se ha creado el recurso '{0}' con identificador '{1}'  por el recurso {2}' con identificador {3} exitosamente.</value>
+  </data>
   <data name="RESOURCE_MODIFIED" xml:space="preserve">
     <value>Se ha modificado el recurso con identificador '{0}' exitosamente.</value>
   </data>

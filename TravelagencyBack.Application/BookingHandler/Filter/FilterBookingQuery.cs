@@ -37,7 +37,7 @@ namespace TravelAgencyBack.Application.BookingHandler.Filter
                     request.Enabled is null ? true : booking.Enabled == request.Enabled;
             };
 
-            bookings = _bookingRepository.FindBy(filter);
+            bookings = _bookingRepository.FindBy(filter, "Room");
 
             response = new ApiResponse<IEnumerable<Booking>>()
             {

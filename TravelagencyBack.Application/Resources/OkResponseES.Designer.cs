@@ -70,6 +70,15 @@ namespace TravelAgencyBack.Application.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Se ha creado el recurso &apos;{0}&apos; con identificador &apos;{1}&apos;  por el recurso {2}&apos; con identificador {3} exitosamente..
+        /// </summary>
+        internal static string RESOURCE_CREATED_BY {
+            get {
+                return ResourceManager.GetString("RESOURCE_CREATED_BY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Se ha modificado el recurso con identificador &apos;{0}&apos; exitosamente..
         /// </summary>
         internal static string RESOURCE_MODIFIED {

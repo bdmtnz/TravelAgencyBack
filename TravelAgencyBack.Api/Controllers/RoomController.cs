@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Application.RoomHandler.Add;
 using TravelAgencyBack.Application.RoomHandler.Filter;
+using TravelAgencyBack.Application.RoomHandler.Free;
 using TravelAgencyBack.Application.RoomHandler.Switch;
 using TravelAgencyBack.Domain;
 
@@ -23,6 +24,13 @@ namespace TravelAgencyBack.Api.Controllers
 
         [HttpPost("Filter", Name = "GetRooms")]
         public async Task<ActionResult<ApiResponse<IEnumerable<Room>>>> GetRooms(FilterRoomRequest request)
+        {
+            var handled = await _mediator.Send(request);
+            return Ok(handled);
+        }
+
+        [HttpPost("Free", Name = "GetFreeRooms")]
+        public async Task<ActionResult<ApiResponse<IEnumerable<Room>>>> GetFreeRooms(FreeRoomRequest request)
         {
             var handled = await _mediator.Send(request);
             return Ok(handled);

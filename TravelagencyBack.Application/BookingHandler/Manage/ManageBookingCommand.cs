@@ -11,6 +11,7 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
     public class ManageBookingCommand : IRequestHandler<ManageBookingRequest, ApiResponse<object>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IGenericRepository<Hotel> _hotelRepository;
         private readonly IGenericRepository<Traveler> _travelerRepository;
         private readonly IGenericRepository<Room> _roomRepository;
         //private readonly IGenericRepository<Contact> _contactRepository;
@@ -22,6 +23,7 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
             _travelerRepository = _unitOfWork.GenericRepository<Traveler>();
             _bookingRepository = unitOfWork.GenericRepository<Booking>();
             _roomRepository = unitOfWork.GenericRepository<Room>();
+            _hotelRepository = unitOfWork.GenericRepository<Hotel>();
         }
 
         public Task<ApiResponse<object>> Handle(ManageBookingRequest request, CancellationToken cancellationToken)
@@ -98,11 +100,14 @@ namespace TravelAgencyBack.Application.BookingHandler.Manage
             }
             else
             {
+                _hotelRepository.Update(hotel);
+                _roomRepository.Update(room);
+                _travelerRepository.Update(traveler);
                 _unitOfWork.Commit();
                 response = new ApiResponse<object>()
                 {
                     Status = System.Net.HttpStatusCode.OK,
-                    Message = string.Format(Resources.OkResponseES.RESOURCE_CREATED, new object[] { room.Id }),
+                    Message = string.Format(Resources.OkResponseES.RESOURCE_CREATED_BY, new object[] { "Reserva", domainResponse.Data.Id, "Viajero", traveler.Id }),
                     Data = default
                 };
             }
