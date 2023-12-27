@@ -8,29 +8,29 @@ using TravelAgencyBack.Application.Base;
 using TravelAgencyBack.Domain;
 using TravelAgencyBack.Domain.Contracts;
 
-namespace TravelAgencyBack.Application.HotelHandler.GetById
+namespace TravelAgencyBack.Application.RoomHandler.GetById
 {
-    public class GetHotelByIdQuery : IRequestHandler<GetHotelByIdRequest, ApiResponse<Hotel>>
+    public class GetRoomByIdQuery : IRequestHandler<GetRoomByIdRequest, ApiResponse<Room>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IGenericRepository<Hotel> _hotelRepository;
+        private readonly IGenericRepository<Room> _hotelRepository;
 
-        public GetHotelByIdQuery(IUnitOfWork unitOfWork)
+        public GetRoomByIdQuery(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _hotelRepository = unitOfWork.GenericRepository<Hotel>();
+            _hotelRepository = unitOfWork.GenericRepository<Room>();
         }
 
-        public Task<ApiResponse<Hotel>> Handle(GetHotelByIdRequest request, CancellationToken cancellationToken)
+        public Task<ApiResponse<Room>> Handle(GetRoomByIdRequest request, CancellationToken cancellationToken)
         {
-            ApiResponse<Hotel> response;
-            Hotel? hotel;
+            ApiResponse<Room> response;
+            Room? hotel;
 
             hotel = _hotelRepository.Find(request.Id);
 
             if(hotel is null)
             {
-                response = new ApiResponse<Hotel>()
+                response = new ApiResponse<Room>()
                 {
                     Status = System.Net.HttpStatusCode.NotFound,
                     Message = Resources.ErrorResponsesES.NOT_FOUND,
@@ -39,7 +39,7 @@ namespace TravelAgencyBack.Application.HotelHandler.GetById
                 return Task.FromResult(response);
             }
 
-            response = new ApiResponse<Hotel>()
+            response = new ApiResponse<Room>()
             {
                 Status = System.Net.HttpStatusCode.OK,
                 Message = Resources.OkResponseES.SUCCESSFUL_PROCCESS,

@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using TravelAgencyBack.Application.Base;
+using TravelAgencyBack.Application.RoomHandler.GetById;
 using TravelAgencyBack.Application.RoomHandler.Add;
 using TravelAgencyBack.Application.RoomHandler.Filter;
 using TravelAgencyBack.Application.RoomHandler.Free;
@@ -20,6 +21,13 @@ namespace TravelAgencyBack.Api.Controllers
         {
             _logger = logger;
             _mediator = mediator;
+        }
+
+        [HttpGet("ById/{RoomId}", Name = "GetRoomById")]
+        public async Task<ActionResult<ApiResponse<Room>>> GetRooms(string RoomId)
+        {
+            var handled = await _mediator.Send(new GetRoomByIdRequest(RoomId));
+            return Ok(handled);
         }
 
         [HttpPost("Filter", Name = "GetRooms")]
