@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
        builder =>
        {
-           builder.WithOrigins("http://localhost:4200", "pipelinetest.ddns.net")
+           builder.WithOrigins("http://localhost:4200", "https://ultra-group-hotel-test-front.azurewebsites.net", "pipelinetest.ddns.net")
            .AllowAnyHeader()
            .AllowAnyMethod();
        });
