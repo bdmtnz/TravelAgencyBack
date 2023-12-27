@@ -11,7 +11,7 @@ using TravelAgencyBack.Domain.Contracts;
 namespace TravelAgencyBack.Application.BookingHandler.GetById
 {
     public class GetBookingByIdQuery : IRequestHandler<GetBookingByIdRequest, ApiResponse<Booking>>
-    {{
+    {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<Booking> _hotelRepository;
 

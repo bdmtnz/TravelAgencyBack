@@ -10,12 +10,12 @@ using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Application.HotelHandler.GetById
 {
-    public class GetHotelByIdQuery : IRequestHandler<GetHotelByIdRequest, ApiResponse<Hotel>>
-    {{
+    public class GetBookingByIdQuery : IRequestHandler<GetHotelByIdRequest, ApiResponse<Hotel>>
+    {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<Hotel> _hotelRepository;
 
-        public GetHotelByIdQuery(IUnitOfWork unitOfWork)
+        public GetBookingByIdQuery(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _hotelRepository = unitOfWork.GenericRepository<Hotel>();
