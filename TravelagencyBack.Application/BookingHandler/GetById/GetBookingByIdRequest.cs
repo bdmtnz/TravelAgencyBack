@@ -14,5 +14,10 @@ namespace TravelAgencyBack.Application.BookingHandler.GetById
     {
         [Required]
         public string Id { get; set; }
+
+        public GetBookingByIdRequest(string id)
+        {
+            Id = id;
+        }
     }
 }

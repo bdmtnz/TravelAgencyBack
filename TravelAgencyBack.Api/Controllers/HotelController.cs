@@ -5,6 +5,7 @@ using TravelAgencyBack.Application.HotelHandler.Switch;
 using TravelAgencyBack.Application.Hotelhandler.Add;
 using TravelAgencyBack.Application.Hotelhandler.Filter;
 using TravelAgencyBack.Domain;
+using TravelAgencyBack.Application.HotelHandler.GetById;
 
 namespace TravelAgencyBack.Api.Controllers
 {
@@ -19,6 +20,13 @@ namespace TravelAgencyBack.Api.Controllers
         {
             _logger = logger;
             _mediator = mediator;
+        }
+
+        [HttpGet("ById/{HotelId}", Name = "GetHotelById")]
+        public async Task<ActionResult<ApiResponse<Hotel>>> GetHotels(string HotelId)
+        {
+            var handled = await _mediator.Send(new GetHotelByIdRequest(HotelId));
+            return Ok(handled);
         }
 
         [HttpPost("Filter", Name = "GetHotels")]
