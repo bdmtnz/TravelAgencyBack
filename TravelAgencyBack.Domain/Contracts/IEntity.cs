@@ -8,7 +8,7 @@ using TravelAgencyBack.Domain.Base;
 
 namespace TravelAgencyBack.Domain.Contracts
 {
-    public interface IEntity : IStorable
+    public interface IEntity
     {
         void SetEnable(bool enable);
     }

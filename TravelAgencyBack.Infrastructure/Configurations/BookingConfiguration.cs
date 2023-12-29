@@ -11,11 +11,11 @@ using TravelAgencyBack.Domain.Base;
 namespace TravelAgencyBack.Infrastructure.Configurations
 {
     public class BookingConfiguration : IEntityTypeConfiguration<Booking>
-    { 
+    {
         public void Configure(EntityTypeBuilder<Booking> BookingConfiguration)
         {
             //Address value object persisted as owned entity in EF Core 2.0
-            //BookingConfiguration.Navigation(booking => booking.Room).AutoInclude();
+            //BookingConfiguration.Navigation(booking => booking.Room).AutoInclude()
             BookingConfiguration.Navigation(booking => booking.Guests).AutoInclude();
             BookingConfiguration.Navigation(booking => booking.Traveler).AutoInclude();
             BookingConfiguration.OwnsOne(booking => booking.EmergencyContact);

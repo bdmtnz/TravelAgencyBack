@@ -43,5 +43,12 @@ namespace TravelAgencyBack.Domain
             var days = (End - Start).Days;
             return days * roomPrice;
         }
+
+        public void LoadRoom(Room? room)
+        {
+            if (Room is not null) return;
+            if(room is null) return;
+            Room = room;
+        }
     }
 }

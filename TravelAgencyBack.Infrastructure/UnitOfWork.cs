@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Infrastructure
@@ -15,7 +16,7 @@ namespace TravelAgencyBack.Infrastructure
             _context = context;
         }
 
-        public IGenericRepository<T> GenericRepository<T>() where T : class, IStorable
+        public IGenericRepository<T> GenericRepository<T>() where T : Entity
         {
             return new GenericRepository<T>(_context);
         }

@@ -1,11 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Reflection;
+using TravelAgencyBack.Domain.Base;
 using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Infrastructure
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class, IStorable
+    public class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
         private readonly TravelAgencyContext _context;
         private readonly DbSet<T> _dbset;
@@ -26,9 +27,11 @@ namespace TravelAgencyBack.Infrastructure
             _dbset.AddRange(entity);
         }
 
-        public T? Find(string id)
+        public T? Find(string id, bool ignoreAutoInclude = false)
         {
-            return _dbset.Find(id);
+            var queriable = _dbset.AsQueryable();
+            if(ignoreAutoInclude) queriable.IgnoreAutoIncludes();
+            return queriable.FirstOrDefault(item => item.Id == id);
         }
 
         public IEnumerable<T> FindBy(Func<T, bool> predicate, string includes = "")

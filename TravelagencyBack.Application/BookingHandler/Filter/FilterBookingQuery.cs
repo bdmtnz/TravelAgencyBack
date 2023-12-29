@@ -14,11 +14,13 @@ namespace TravelAgencyBack.Application.BookingHandler.Filter
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<Booking> _bookingRepository;
+        private readonly IGenericRepository<Room> _roomRepository;
 
         public FilterBookingQuery(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _bookingRepository = unitOfWork.GenericRepository<Booking>();
+            _roomRepository = unitOfWork.GenericRepository<Room>();
         }
 
         public Task<ApiResponse<IEnumerable<Booking>>> Handle(FilterBookingRequest request, CancellationToken cancellationToken)
@@ -37,7 +39,12 @@ namespace TravelAgencyBack.Application.BookingHandler.Filter
                     request.Enabled is null ? true : booking.Enabled == request.Enabled;
             };
 
-            bookings = _bookingRepository.FindBy(filter, "Room");
+            bookings = _bookingRepository.FindBy(filter, "Room").Select(booking =>
+            {
+                Room? room = _roomRepository.Find(booking.RoomId, true);
+                booking.LoadRoom(room);
+                return booking;
+            });
 
             response = new ApiResponse<IEnumerable<Booking>>()
             {
