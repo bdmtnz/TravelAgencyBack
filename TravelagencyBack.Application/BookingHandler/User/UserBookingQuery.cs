@@ -14,10 +14,12 @@ namespace TravelAgencyBack.Application.BookingHandler.User
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<Booking> _bookingRepository;
+        private readonly IGenericRepository<Room> _roomRepository;
 
         public UserBookingQuery(IUnitOfWork unitOfWork) {
             _unitOfWork = unitOfWork;
             _bookingRepository = unitOfWork.GenericRepository<Booking>();
+            _roomRepository = unitOfWork.GenericRepository<Room>();
         }
 
         public Task<ApiResponse<IEnumerable<Booking>>> Handle(UserBookingRequest request, CancellationToken cancellationToken)
@@ -30,7 +32,13 @@ namespace TravelAgencyBack.Application.BookingHandler.User
                 return booking.Traveler.Credential.Id == request.CredentialId;
             };
 
-            bookings = _bookingRepository.FindBy(filter);
+
+            bookings = _bookingRepository.FindBy(filter, "Room").Select(booking =>
+            {
+                Room? room = _roomRepository.Find(booking.RoomId, true);
+                booking.LoadRoom(room);
+                return booking;
+            });
 
             response = new ApiResponse<IEnumerable<Booking>>()
             {
