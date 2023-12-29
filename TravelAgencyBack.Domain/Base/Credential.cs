@@ -18,7 +18,7 @@ namespace TravelAgencyBack.Domain.Base
     {
         public string User { get; private set; }
         public Rol Rol { get; private set; }
-        internal string Password { get; private set; }
+        public string Password { get; private set; }
         public Contact Contact { get; private set; }
 
         public Credential()
