@@ -105,5 +105,10 @@ namespace TravelAgencyBack.Infrastructure
         {
             _dbset.Update(entity);
         }
+
+        public int Count()
+        {
+            return _dbset.Count();
+        }
     }
 }

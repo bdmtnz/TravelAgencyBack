@@ -19,5 +19,6 @@ namespace TravelAgencyBack.Domain.Contracts
         void Update(T entity);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entity);
+        int Count();
     }
 }

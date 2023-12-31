@@ -80,6 +80,13 @@ namespace TravelAgencyBack.Domain
             return !bookings.Any();
         }
 
+        public bool CanBookingOverAll(DateTime start, DateTime end)
+        {
+            if (!Hotel.Enabled || !Enabled) return false;
+            var bookings = Bookings.Where(booking => booking.Start <= end && booking.End >= start && booking.Enabled);
+            return !bookings.Any();
+        }
+
         public void Update(string location, RoomType type, double cost, double tax, double profit, int capacity, string city)
         {
             Location = location;
