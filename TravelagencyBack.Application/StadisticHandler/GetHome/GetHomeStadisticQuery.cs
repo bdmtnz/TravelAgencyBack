@@ -10,7 +10,7 @@ using TravelAgencyBack.Domain.Contracts;
 
 namespace TravelAgencyBack.Application.StadisticHandler.GetHome
 {
-    public class GetHomeStadisticQuery : IRequestHandler<GetHomeStadisticRequest, ApiResponse<GetHomeStadisticResponse>>
+    public class GetHomeStadisticQuery : IRequestHandler<GetHomeStadisticRequest, ApiResponse<List<GetHomeStadisticResponse>>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<Hotel> _hotelRepository;
@@ -25,28 +25,87 @@ namespace TravelAgencyBack.Application.StadisticHandler.GetHome
             _bookingRepository = unitOfWork.GenericRepository<Booking>();
         }
 
-        public Task<ApiResponse<GetHomeStadisticResponse>> Handle(GetHomeStadisticRequest request, CancellationToken cancellationToken)
+        public Task<ApiResponse<List<GetHomeStadisticResponse>>> Handle(GetHomeStadisticRequest request, CancellationToken cancellationToken)
         {
-            ApiResponse<GetHomeStadisticResponse> response;
-            var stadistics = new GetHomeStadisticResponse()
+            ApiResponse<List<GetHomeStadisticResponse>> response;
+            var Hotels = new GetHomeStadisticHotel()
             {
-                Hoteles = new GetHomeStadisticHotel()
+                N_creados = _hotelRepository.Count(),
+                Habilitados = _hotelRepository.FindBy(hotel => hotel.Enabled).Count()
+            };
+            var Rooms = new GetHomeStadisticRoom()
+            {
+                N_creados = _roomRepository.Count(),
+                Disponibles = _roomRepository.FindBy(room => room.CanBookingOverAll(DateTime.Now, DateTime.Now.AddDays(1))).Count()
+            };
+            var Bookings = new GetHomeStadisticBooking()
+            {
+                N_creados = _bookingRepository.Count(),
+                Habilitados = _bookingRepository.FindBy(booking => booking.Enabled).Count()
+            };
+
+            var stadistics = new List<GetHomeStadisticResponse>()
+            {
+                new GetHomeStadisticResponse()
                 {
-                    N_creados = _hotelRepository.Count(),
-                    Habilitados = _hotelRepository.FindBy(hotel => hotel.Enabled).Count()
+                    Title = "Hoteles",
+                    Items = new List<GetHomeStadisticItem> {
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Registrados",
+                            Value = Hotels.N_creados
+                        },
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Habilitados",
+                            Value = Hotels.Habilitados
+                        },
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Deshabilitados",
+                            Value = Hotels.Deshabilitados
+                        }
+                    }
                 },
-                Room = new GetHomeStadisticRoom()
+                new GetHomeStadisticResponse()
                 {
-                    N_creados = _roomRepository.Count(),
-                    Disponibles = _roomRepository.FindBy(room => room.CanBookingOverAll(DateTime.Now, DateTime.Now.AddDays(1))).Count()
+                    Title = "Habitaciones",
+                    Items = new List<GetHomeStadisticItem> {
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Registradas",
+                            Value = Rooms.N_creados
+                        },
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Disponibles",
+                            Value = Rooms.Disponibles
+                        },
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Reservadas",
+                            Value = Rooms.Reservadas
+                        }
+                    }
                 },
-                Reservaciones = new GetHomeStadisticBooking()
+                new GetHomeStadisticResponse()
                 {
-                    N_creados = _bookingRepository.Count(),
-                    Habilitados = _bookingRepository.FindBy(booking => booking.Enabled).Count()
+                    Title = "Reservaciones",
+                    Items = new List<GetHomeStadisticItem> {
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Registradas",
+                            Value = Bookings.N_creados
+                        },
+                        new GetHomeStadisticItem() {
+                            Icon = "",
+                            Label = "Habilitadas",
+                            Value = Bookings.Habilitados
+                        }
+                    }
                 }
             };
-            response = new ApiResponse<GetHomeStadisticResponse>()
+            response = new ApiResponse<List<GetHomeStadisticResponse>>()
             {
                 Status = System.Net.HttpStatusCode.OK,
                 Message = Resources.OkResponseES.SUCCESSFUL_PROCCESS,

@@ -8,7 +8,7 @@ using TravelAgencyBack.Application.Base;
 
 namespace TravelAgencyBack.Application.StadisticHandler.GetHome
 {
-    public class GetHomeStadisticRequest : IRequest<ApiResponse<GetHomeStadisticResponse>>
+    public class GetHomeStadisticRequest : IRequest<ApiResponse<List<GetHomeStadisticResponse>>>
     {
     }
 }

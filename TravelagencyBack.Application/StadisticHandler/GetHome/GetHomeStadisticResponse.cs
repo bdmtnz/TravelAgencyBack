@@ -8,9 +8,8 @@ namespace TravelAgencyBack.Application.StadisticHandler.GetHome
 {
     public class GetHomeStadisticResponse
     {
-        public GetHomeStadisticHotel Hoteles { get; set; }
-        public GetHomeStadisticRoom Room { get; set; }
-        public GetHomeStadisticBooking Reservaciones { get; set; }
+        public string Title { get; set; }
+        public List<GetHomeStadisticItem> Items { get; set; }
     }
 
     public class GetHomeStadisticHotel
@@ -32,25 +31,11 @@ namespace TravelAgencyBack.Application.StadisticHandler.GetHome
         public int N_creados { get; set; }
         public int Habilitados { get; set; }
     }
-}
-/*
-hoteles
-{
-N_creados
-habilitados
-deshabilitados
-}
 
-room {
-N_creados
-disponibles
-reservadas
+    public class GetHomeStadisticItem
+    {
+        public string Label { get; set; }
+        public string Icon { get; set; }
+        public int Value { get; set; }
+    }
 }
-
-
-reservaciones {
-N_creados
-habillitadas
-
-}
-*/
