@@ -51,17 +51,17 @@ namespace TravelAgencyBack.Application.StadisticHandler.GetHome
                     Title = "Hoteles",
                     Items = new List<GetHomeStadisticItem> {
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "bed",
                             Label = "Registrados",
                             Value = Hotels.N_creados
                         },
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "lock_open",
                             Label = "Habilitados",
                             Value = Hotels.Habilitados
                         },
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "lock",
                             Label = "Deshabilitados",
                             Value = Hotels.Deshabilitados
                         }
@@ -72,17 +72,17 @@ namespace TravelAgencyBack.Application.StadisticHandler.GetHome
                     Title = "Habitaciones",
                     Items = new List<GetHomeStadisticItem> {
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "door_open",
                             Label = "Registradas",
                             Value = Rooms.N_creados
                         },
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "check",
                             Label = "Disponibles",
                             Value = Rooms.Disponibles
                         },
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "luggage",
                             Label = "Reservadas",
                             Value = Rooms.Reservadas
                         }
@@ -93,12 +93,12 @@ namespace TravelAgencyBack.Application.StadisticHandler.GetHome
                     Title = "Reservaciones",
                     Items = new List<GetHomeStadisticItem> {
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "door_open",
                             Label = "Registradas",
                             Value = Bookings.N_creados
                         },
                         new GetHomeStadisticItem() {
-                            Icon = "",
+                            Icon = "lock_open",
                             Label = "Habilitadas",
                             Value = Bookings.Habilitados
                         }
